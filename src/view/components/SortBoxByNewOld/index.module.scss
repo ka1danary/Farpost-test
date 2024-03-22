@@ -27,25 +27,26 @@
             align-items: center;
             margin-bottom: 10px;
             width: 15vw;
+            min-width: 250px;
             height: 5vh;
             transition: background-color 0.3s;
 
 
-                &:hover {
-                    background-color: aliceblue;
-                    border-radius: 5px;
-                }
+            &:hover {
+                background-color: aliceblue;
+                border-radius: 5px;
+            }
 
-                &:active {
-                    background-color: aliceblue;
-                    border-radius: 5px;
-                }
+            &:active {
+                background-color: aliceblue;
+                border-radius: 5px;
+            }
 
-                &:focus {
-                    background-color: aliceblue;
-                    border-radius: 5px;
-                }
-            
+            &:focus {
+                background-color: aliceblue;
+                border-radius: 5px;
+            }
+
 
             &SVG {
                 margin-right: 10px;
@@ -53,3 +54,4 @@
         }
     }
 }
+

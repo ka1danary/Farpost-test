@@ -18,10 +18,10 @@ interface Props {
 export const ButtonCreate: React.FC<Props> = ({
   setVision,
   date,
-  name = "Новая задача",
-  title = "Описание",
+  name,
+  title,
   priority,
-  mark
+  mark,
 }) => {
   const [createTask] = useFarpostStore((state) => [state.createTask]);
 

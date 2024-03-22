@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./index.module.scss";
 import { ButtonCreate } from "../buttons/ButtonCreate";
 import { Input } from "../Input";
@@ -12,11 +12,11 @@ interface ModalCreate {
 
 export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
   //const [createTask] = useFarpostStore((state) => [state.createTask]);
-  const [date, setDate] = useState(" ");
+  const [date, setDate] = useState("...");
   const [name, setName] = useState("Новая задача");
   const [title, setTitle] = useState("Описание");
-  const [priority, setPriority] = useState("Новая задача");
-  const [mark, setMark] = useState("Новая задача");
+  const [priority, setPriority] = useState("None");
+  const [mark, setMark] = useState("...");
 
   return (
     <div className={styles.ModalCreate} onClick={() => setActive(false)}>

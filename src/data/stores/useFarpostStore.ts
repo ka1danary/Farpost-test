@@ -34,7 +34,7 @@ const tasksGlobal: Task[] = [
     name: "Купить газпром",
     createdAt: "01-02-2024",
     title: "title",
-    priority: "Low",
+    priority: "Hight",
     mark: 'Designed',
   },
   {
@@ -50,7 +50,7 @@ const tasksGlobal: Task[] = [
     name: "Решить 10 диффуров",
     createdAt: "20-10-2024",
     title: "title",
-    priority: "Low",
+    priority: "Medium",
     mark: 'Designed',
   },
   {
@@ -58,7 +58,7 @@ const tasksGlobal: Task[] = [
     name: "Сходить в боулинг",
     createdAt: "30-10-2024",
     title: "title",
-    priority: "Low",
+    priority: "Hight",
     mark: 'Designed',
   },
   {
@@ -66,7 +66,7 @@ const tasksGlobal: Task[] = [
     name: "Поиграть в покер",
     createdAt: "30-10-2024",
     title: "title",
-    priority: "Low",
+    priority: "Medium",
     mark: 'Designed',
   },
 ];
