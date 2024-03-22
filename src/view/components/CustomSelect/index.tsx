@@ -4,9 +4,10 @@ import styles from "./index.module.scss";
 interface Props {
   title: string;
   values: string[];
+  set: (val: string) => void;
 }
 
-export const CustomSelect: React.FC<Props> = ({ title, values }) => {
+export const CustomSelect: React.FC<Props> = ({ title, values, set }) => {
   const [vision, setVision] = useState(true);
   const [newTitle, setNewTitle] = useState(title);
   const root = [styles.CustomSelectDrop];
@@ -43,6 +44,7 @@ export const CustomSelect: React.FC<Props> = ({ title, values }) => {
             className={styles.CustomSelectDropRow}
             onClick={() => {
               setVision(!vision);
+              set(val)
               console.log(vision);
             }}
           >

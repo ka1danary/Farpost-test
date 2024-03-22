@@ -47,12 +47,14 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
                   <CustomSelect
                     title={"Приоритет"}
                     values={["Low", "Medium", "Hight"]}
+                    set={setPriority}
                   />
                 </div>
                 <div>
                   <CustomSelect
                     title={"Отметка"}
                     values={["Development", "Designed", "Research"]}
+                    set={setMark}
                   />
                 </div>
               </div>
@@ -63,6 +65,9 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
               setVision={setActive}
               date={date}
               name={name}
+              title={title}
+              priority={priority}
+              mark={mark}
               setDate={setDate}
               setName={setName}
             />
