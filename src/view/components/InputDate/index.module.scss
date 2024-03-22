@@ -1,0 +1,22 @@
+
+.InputDate input[type="date"] {
+    background-color:aliceblue;
+    padding: 10px;
+    font-size: 0.7em;
+    width: 10vw;
+    min-width: 150px;
+    min-height: 20px;
+    height: 3vh;;
+    border-radius: 5px;
+    border: 1px solid rgb(227, 242, 255);
+    &:hover {
+        border: 1px solid rgb(202, 229, 252);
+    }
+
+    &:active {
+        border: 1px solid rgb(202, 229, 252);
+    }
+    &:focus {
+        border: 1px solid rgb(202, 229, 252);
+    }
+}

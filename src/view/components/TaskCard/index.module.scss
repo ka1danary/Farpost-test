@@ -1,36 +1,29 @@
 .TaskCard {
+    display: flex;
+    justify-content: space-between;
     padding: 20px;
     margin-top: 20px;
     height: 20vh;
-    width: 99vh;
+    width: 70vW;
+    min-height: 170px;
     border-radius: 6px;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
     background: rgb(255, 255, 255);
-    cursor: pointer;
-    transition: opacity 0.3s;
+    transition: background 0.3s;
 
-        &:hover{
-            opacity: 0.7;
-        }
+    &:hover {
+        background: #ffffff81;
+    }
 
     &Title {
-        color: rgb(46, 46, 46);
-        font-family: Roboto;
-        font-size: 24px;
+        font-size: 1.5em;
         font-weight: 500;
-        line-height: 28px;
-        letter-spacing: 0%;
-        text-align: left;
     }
 
     &Content {
-        color: rgb(110, 110, 110);
-        font-family: Roboto;
-        font-size: 22px;
-        font-weight: 500;
-        line-height: 26px;
-        letter-spacing: 0%;
-        text-align: left;
+        font-size: 1em;
         padding: 10px 0 10px 0;
+        width: 60vW;
+        cursor: pointer;
     }
 }

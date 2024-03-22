@@ -1,34 +1,45 @@
 .ButtonAdd {
     z-index: 2;
     border-radius: 6px;
-    width: 240px;
-    height: 60px;
+    width: 17vw;
+    min-width: 290px;
+    min-height: 50px;
+    height: 6vh;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     background: rgb(34, 147, 211);
     color: rgb(255, 255, 255);
-    font-family: Roboto;
-    font-size: 22px;
+    font-size: 1em;
     font-weight: 500;
-    line-height: 26px;
-    letter-spacing: 0%;
-    text-align: center;
     transition: opacity 0.3s;
-        &:hover{
-            opacity: 0.7;
-        }
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .Modal {
     display: none;
-    &Active{
+
+    &Active {
         display: inline;
-    }
-}
-.Active {
-    display: inline;
-    .ButtonAdd {
-        display: none;
+
+        body {
+            overflow: hidden;
+        }
+
     }
 }
 
+.Active {
+    display: inline;
+
+    body {
+        overflow: hidden;
+    }
+
+    .ButtonAdd {
+        display: none;
+
+    }
+}

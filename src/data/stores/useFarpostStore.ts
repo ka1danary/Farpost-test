@@ -1,11 +1,10 @@
 import { create } from "zustand";
 import { generateId } from "../helpers";
-//import { generateId } from "../helpers";
 
 interface Task {
   id: string;
   name: string;
-  createdAt: number;
+  createdAt: string;
   priority: number;
   mark: string[];
 }
@@ -16,38 +15,50 @@ interface TaskStore {
   sortTaskByNewDate: () => void;
   sortTaskByOldDate: () => void;
   filterByPriority: (priority: number) => void;
-  createTask: (name: string, priority: number, mark: string[]) => void;
+  createTask: (
+    name: string,
+    createdAt: string,
+    priority: number,
+    mark: string[]
+  ) => void;
   stopVisible: (vision: boolean) => boolean;
   // updateTask: (id: string, name: string, priorty: number, title: string) => void;
-  // removeTask: (id: string) => void;
+  removeTask: (id: string) => void;
 }
 
 const tasksGlobal: Task[] = [
   {
     id: "1",
-    name: "Новая тестовая запись 1",
-    createdAt: 15,
+    name: "Купить газпром",
+    createdAt: "01-02-2024",
     priority: 1,
     mark: ["1", "2"],
   },
   {
     id: "2",
-    name: "Новая тестовая запись 2",
-    createdAt: 10,
+    name: "Помыть машину",
+    createdAt: "10-04-2024",
     priority: 2,
     mark: ["1", "2"],
   },
   {
     id: "3",
-    name: "Новая тестовая запись 3",
-    createdAt: 1,
+    name: "Решить 10 диффуров",
+    createdAt: "20-10-2024",
     priority: 1,
     mark: ["1", "2"],
   },
   {
     id: "4",
-    name: "Новая тестовая запись 4",
-    createdAt: 9,
+    name: "Сходить в боулинг",
+    createdAt: "30-10-2024",
+    priority: 3,
+    mark: ["1", "2"],
+  },
+  {
+    id: "5",
+    name: "Поиграть в покер",
+    createdAt: "30-10-2024",
     priority: 3,
     mark: ["1", "2"],
   },
@@ -86,12 +97,12 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
     }
   },
 
-  createTask: (name, priority, mark) => {
+  createTask: (name, createdAt, priority, mark) => {
     const { tasks } = get();
     const newTask = {
       id: generateId(),
       name,
-      createdAt: Date.now(),
+      createdAt,
       priority,
       mark,
     };
@@ -103,5 +114,11 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
   stopVisible: (vision) => {
     const temp = !vision;
     return temp;
+  },
+  removeTask: (id : string) => {
+    const { tasks } = get();
+    set({
+      tasks: tasks.filter((task) => task.id != id),
+    });
   },
 }));

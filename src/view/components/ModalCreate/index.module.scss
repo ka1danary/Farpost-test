@@ -1,58 +1,117 @@
 .ModalCreate {
     z-index: 1;
     position: fixed;
-    width: 100%;
-    height: 100%;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.589);
+    overflow-y: hidden;
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     &Content {
-        width: 100vh;
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 70vw;
         height: 80vh;
         border-radius: 10px;
         background: rgb(255, 255, 255);
 
-        &Title {
-            display: flex;
-            font-weight: 500;
-            font-size: 1.7em;
-            justify-content: center;
-            color: gren;
-            padding: 20px;
-        }
-
         &Button {
             display: flex;
-            justify-content: end;
-            margin-right: 50px;
+            justify-content: center;
+            margin-top: 50px;
+
         }
 
         &Data {
-            margin: 50px;
-            font-size: 1.5em;
+            font-size: 1.3em;
 
             &Element {
                 display: flex;
                 justify-content: space-between;
-                width: 60vh;
                 margin-bottom: 40px;
+
+
+                input {
+                    margin-left: 20px;
+                }
+
+                &Select {
+                   display: flex;
+                   justify-content: space-around;
+                   
+                    &Box {
+                        
+                    }
+                }
             }
-
-            input {
-                height: 3vh;
-                width: 40vh;
-            }
-
-
 
         }
-    }
 
+        &Title {
+            display: flex;
+            justify-content: center;
+            font-weight: 500;
+            margin-bottom: 40px;
+            font-size: 1.5em;
+            
+        }
+    }
 }
+
+@media (max-width: 1600px) {
+    .ModalCreate {
+        
+        &Content {
+            width: 70vw;
+            &Data {
+                &Element {
+                    width: 60vw;
+                    
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .ModalCreate {
+        
+        &Content {
+            width: 70vw;
+            height: 90vh;
+            &Data {
+                &Element {
+                    
+                    
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .ModalCreate {
+        
+        &Content {
+            width: 80vw;
+            height: 100vh;
+            
+            &Data {
+                &Element {
+                    
+                    
+                }
+            }
+        }
+    }
+}
+
+

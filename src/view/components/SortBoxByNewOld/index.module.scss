@@ -2,23 +2,54 @@
     border-radius: 6px;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
     background: rgb(255, 255, 255);
-    width: 40vh;
-    height: 15vh;
+    width: 15vw;
+    min-width: 250px;
+    min-height: 150px;
+    height: 18vh;
     padding: 20px;
+    margin-right: 20px;
 
     &Title {
-        color: #2e2e2e;
-        font-family: Roboto;
         font-size: 1.5em;
         font-weight: 500;
-        line-height: 26px;
-        letter-spacing: 0%;
-        text-align: left;
         margin-bottom: 10px;
         margin-top: 10px;
     }
-    &Content{
-        margin-top: 25px;
-        font-size: 1.2em;
+
+    &Content {
+        font-size: 1em;
+
+
+        &ButtonSort {
+            display: flex;
+            padding: 15px;
+            justify-content: start;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 15vw;
+            height: 5vh;
+            transition: background-color 0.3s;
+
+
+                &:hover {
+                    background-color: aliceblue;
+                    border-radius: 5px;
+                }
+
+                &:active {
+                    background-color: aliceblue;
+                    border-radius: 5px;
+                }
+
+                &:focus {
+                    background-color: aliceblue;
+                    border-radius: 5px;
+                }
+            
+
+            &SVG {
+                margin-right: 10px;
+            }
+        }
     }
 }

@@ -1,36 +1,25 @@
 import React from "react";
 
-//import { useFarpostStore } from "../../../../data/stores/useFarpostStore";
-
 import styles from "./index.module.scss";
 
 import { ListTaskCard } from "../../ListTaskCard";
 import { ButtonAdd } from "../../buttons/ButtonAdd";
 import { SortBoxByNewOld } from "../../SortBoxByNewOld";
+import { useFarpostStore } from "../../../../data/stores/useFarpostStore";
 
 interface MainPageProps {}
 
 export const MainPage: React.FC<MainPageProps> = () => {
-  // const [
-  //   tasks,
-  //   sortTaskByNewDate,
-  //   sortTaskByOldDate,
-  //   filterByPriority,
-  //   createTask,
-  // ] = useFarpostStore((state) => [
-  //   state.tasks,
-  //   state.sortTaskByNewDate,
-  //   state.sortTaskByOldDate,
-  //   state.filterByPriority,
-  //   state.createTask,
-  // ]);
+  const [tasks] = useFarpostStore((state) => [state.tasks]);
 
   return (
-    <div>
-      <div className={styles.MainPageTitle}>Список задач</div>
+    <div className={styles.Page}>
+      <div className={styles.MainPageTitle}>Список задач ({tasks.length})</div>
       <div className={styles.MainPage}>
         <div className={styles.MainPageSideBar}>
-          <SortBoxByNewOld />
+          <div>
+            <SortBoxByNewOld />
+          </div>
         </div>
         <div className={styles.MainPageCenter}>
           <ButtonAdd />

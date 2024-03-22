@@ -1,24 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
+
 import styles from "./index.module.scss";
+
 import { useFarpostStore } from "../../../../data/stores/useFarpostStore";
 
-interface Props {}
+interface Props {
+  setVision: (vision: boolean) => void;
+  date: string;
+  name: string;
+  setDate: (date: string) => void;
+  setName: (name: string) => void;
+}
 
-export const ButtonCreate: React.FC<Props> = () => {
+export const ButtonCreate: React.FC<Props> = ({
+  setVision,
+  date,
+  name = "Новая задача",
+}) => {
   const [createTask] = useFarpostStore((state) => [state.createTask]);
-  const [vision, setVision] = useState(false);
-  const root = [styles.Modal];
-
-  if (vision) {
-    root.push(styles.Active);
-    console.log(root);
-  }
 
   return (
     <div>
       <button
         className={styles.ButtonAdd}
-        onClick={() => createTask("1", 2, ["2"])}
+        onClick={() => {
+          createTask(name, date, 2, ["1", "2"]);
+          setVision(false);
+        }}
       >
         Создать
       </button>
