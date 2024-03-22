@@ -1,6 +1,7 @@
 import { ButtonnBack } from "../../buttons/ButtonBack";
 import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
+import { ButtonEdit } from "../../buttons/ButtonEdit";
 
 interface Props {
   key: string;
@@ -26,13 +27,13 @@ export const ViewPage: React.FC<Props> = ({
       <div className={styles.ViewPageTask}>
         <div className={styles.ViewPageTaskButtonBox}>
           <div>
-            <ButtonnBack />
-            <Link to='/edit'>
-              <button>Редактировать</button>
-            </Link>
+            <ButtonEdit href={"/"} title={"Назад"} type={"void"} />
+            <ButtonEdit href={"/edit"} title={"Редактировать"} type={"calm"} />
           </div>
 
-          <button>Удалить</button>
+          <div>
+            <ButtonEdit href={"/edit"} title={"Удалить"} type={"danger"} />
+          </div>
         </div>
         <div className={styles.ViewPageTaskCard}>Карточка</div>
       </div>

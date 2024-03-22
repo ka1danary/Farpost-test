@@ -10,7 +10,7 @@ export const EditPage: React.FC<Props> = () => {
       <Link to="/view">
         <button>Назад</button>
       </Link>
-      <CustomSelect title={'Выберите метку'} values={['Develop', 'Design', 'Research']} />
+      
     </div>
   );
 };

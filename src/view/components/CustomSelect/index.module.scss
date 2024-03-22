@@ -1,7 +1,8 @@
 .CustomSelect {
     font-size: 0.6em;
+    font-weight: 500;
     margin-left: 20px;
-   
+
     &Preview {
         display: flex;
         align-items: center;
@@ -10,7 +11,20 @@
         min-width: 150px;
         height: 4vh;
         min-height: 45px;
-     
+        transition: opacity 0.3s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:focus {
+            opacity: 0.7;
+        }
+
+        &:active {
+            opacity: 0.7;
+        }
+
         &Content {
             display: flex;
             justify-content: space-around;
