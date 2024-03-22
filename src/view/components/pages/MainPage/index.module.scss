@@ -1,0 +1,48 @@
+.MainPage {
+    display: flex;
+    justify-content: space-around;
+    &Center {
+        align-items: center;
+    }
+    &SideBar {
+    }
+}
+
+.MainPageTitle {
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    font-family: Roboto;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 42px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin: 20px;
+    margin-bottom: 50px;
+    // position: sticky;
+    // top: 20px;
+}
+
+.DropBox {
+    display: inline;
+    overflow: hidden;
+}
+
+@media (max-width : 1800px) {
+    .MainPage {
+        display: inline;
+        &Center {
+            display:grid;
+            justify-content: center;
+            align-items: center;
+        }
+        &SideBar {
+            display:grid;
+            justify-content: center;
+            max-width: 500px;
+            width: 600px;
+            margin-bottom: 20px;
+        }
+    }
+}

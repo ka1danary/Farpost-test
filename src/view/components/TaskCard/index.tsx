@@ -1,4 +1,5 @@
 import React from "react";
+
 import styles from "./index.module.scss";
 
 interface Task {
@@ -6,23 +7,25 @@ interface Task {
   name: string;
   createdAt: number;
   priority: number;
-  mark: string [];
+  mark: string[];
 }
 
 export const TaskCard: React.FC<Task> = ({
-  id,
+  //id,
   name,
   createdAt,
   priority,
   mark,
 }) => {
   return (
-    <div className={styles.TaskCard}>
-      <h2 className={styles.TaskCardName}>{name + id}</h2>
-      <div className={styles.TaskCardContent}>
-        <div>Создано: {createdAt}</div>
-        <div>Приоритет: {priority}</div>
-        <div>Метка: {mark}</div>
+    <div>
+      <div className={styles.TaskCard}>
+        <h2 className={styles.TaskCardTitle}>{name}</h2>
+        <div className={styles.TaskCardContent}>
+          <div className={styles.TaskCardContent}>Создано: {createdAt}</div>
+          <div className={styles.TaskCardContent}>Приоритет: {priority}</div>
+          <div className={styles.TaskCardContent}>Метка: {mark}</div>
+        </div>
       </div>
     </div>
   );

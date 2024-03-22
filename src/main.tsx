@@ -1,12 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {App} from './view/App/index.tsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 
-import './view/styles/reset.scss'
-import './view/styles/common.scss'
+import { App } from "./view/App/index.tsx";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+import "./view/styles/reset.scss";
+import "./view/styles/common.scss";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);

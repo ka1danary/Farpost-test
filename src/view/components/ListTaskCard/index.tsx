@@ -4,6 +4,9 @@ import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 
 import styles from "./index.module.scss";
 
+interface ListTaskCard {
+  modalOpen: () => void
+}
 export const ListTaskCard: React.FC = () => {
 const tasks = useFarpostStore((state) => state.tasks);
   return (
