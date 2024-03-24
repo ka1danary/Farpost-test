@@ -19,6 +19,10 @@
         font-size: 1.5em;
         font-weight: 500;
         margin-left: 10px;
+        width: 60vW;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     &Content {

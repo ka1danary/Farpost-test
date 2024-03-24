@@ -2,8 +2,8 @@ import { useState } from "react";
 import styles from "./index.module.scss";
 
 interface Props {
-  title: string;
-  values: string[];
+  title?: string;
+  values?: string[];
   set: (val: string) => void;
 }
 

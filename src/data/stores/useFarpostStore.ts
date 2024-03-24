@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { generateId } from "../helpers";
+import data from "../MOCK_DATA.json";
 
 interface Task {
   id: string;
@@ -12,10 +13,20 @@ interface Task {
 
 interface TaskStore {
   tasks: Task[];
-  //createTask: (title: string) => void;
+  task: Task;
+  id : string,
   sortTaskByNewDate: () => void;
   sortTaskByOldDate: () => void;
+  setId: (id : string) => void
 
+  setTaskInfoString: (
+    id: string,
+    name: string,
+    createdAt: string,
+    title: string,
+    priorty: string,
+    mark: string
+  ) => void;
   createTask: (
     name: string,
     createdAt: string,
@@ -24,70 +35,42 @@ interface TaskStore {
     mark: string
   ) => void;
   stopVisible: (vision: boolean) => boolean;
-  // updateTask: (id: string, name: string, priorty: number, title: string) => void;
+  updateTask: (
+    id: string,
+    newName: string,
+    newTitle: string,
+    newPriority: string,
+    newMark: string
+  ) => void;
   removeTask: (id: string) => void;
+  findTask: (id: string) => Task;
 }
+// const tasksGlobal: Task[] = [
 
-const tasksGlobal: Task[] = [
-  {
-    id: "1",
-    name: "Купить газпром",
-    createdAt: "01-02-2024",
-    title: "title",
-    priority: "Hight",
-    mark: 'Designed',
-  },
-  {
-    id: "2",
-    name: "Помыть машину",
-    createdAt: "10-04-2024",
-    title: "title",
-    priority: "Low",
-    mark: 'Designed',
-  },
-  {
-    id: "3",
-    name: "Решить 10 диффуров",
-    createdAt: "20-10-2024",
-    title: "title",
-    priority: "Medium",
-    mark: 'Designed',
-  },
-  {
-    id: "4",
-    name: "Сходить в боулинг",
-    createdAt: "30-10-2024",
-    title: "title",
-    priority: "Hight",
-    mark: 'Designed',
-  },
-  {
-    id: "5",
-    name: "Поиграть в покер",
-    createdAt: "30-10-2024",
-    title: "title",
-    priority: "Medium",
-    mark: 'Designed',
-  },
-];
+// ];
+const globalTask: Task = {
+  id: "",
+  name: "Name",
+  createdAt: "00/00/0000",
+  title: "Title",
+  priority: "Low",
+  mark: "Designed",
+};
 
 export const useFarpostStore = create<TaskStore>((set, get) => ({
-  tasks: tasksGlobal,
-
+  tasks: data,
+  task: globalTask,
+  id: '',
   sortTaskByNewDate: () => {
     const { tasks } = get();
     set({
-      tasks: tasks
-        .slice()
-        .sort((a: Task, b: Task) => (a.createdAt < b.createdAt ? 1 : -1)),
+      tasks: tasks.slice().sort((a: Task, b: Task) => (a.createdAt < b.createdAt ? 1 : -1)),
     });
   },
   sortTaskByOldDate: () => {
     const { tasks } = get();
     set({
-      tasks: tasks
-        .slice()
-        .sort((a: Task, b: Task) => (a.createdAt > b.createdAt ? 1 : -1)),
+      tasks: tasks.slice().sort((a: Task, b: Task) => (a.createdAt > b.createdAt ? 1 : -1)),
     });
   },
 
@@ -101,19 +84,53 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
       priority,
       mark,
     };
-    tasksGlobal.concat(newTask);
+    data.push(newTask);
     set({
       tasks: [newTask].concat(tasks),
     });
   },
-  stopVisible: (vision) => {
-    const temp = !vision;
-    return temp;
+  stopVisible: (vision) => !vision,
+
+  setTaskInfoString: (id, name, createdAt, title, priority, mark) => {
+    const setTask = {
+      id,
+      name,
+      createdAt,
+      title,
+      priority,
+      mark,
+    };
+    set({
+      task: setTask,
+    });
   },
+
   removeTask: (id: string) => {
     const { tasks } = get();
     set({
       tasks: tasks.filter((task) => task.id != id),
     });
   },
+  updateTask: (id, newName, newTitle, newPriority, newMark) => {
+    const { tasks } = get();
+    set({
+      tasks: tasks.map((task) => ({
+        ...task,
+        name: task.id === id ? newName : task.name,
+        title: task.id === id ? newTitle : task.title,
+        priority: task.id === id ? newPriority : task.priority,
+        mark: task.id === id ? newMark : task.mark,
+      })),
+    });
+  },
+  findTask: (id) => {
+    const { tasks } = get();
+    return tasks.find((task) => task.id === id);
+  },
+  setId: (newId) => {
+    console.log(newId);
+    set({
+      id: newId
+    });
+  }
 }));

@@ -1,0 +1,18 @@
+.EditPage {
+    &Box {
+        &Title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(0, 0, 0);
+            font-family: Roboto;
+            font-size: 2em;
+            font-weight: 500;
+            line-height: 42px;
+            letter-spacing: 0%;
+            text-align: left;
+            margin: 20px;
+            margin-bottom: 50px;
+        }
+    }
+}

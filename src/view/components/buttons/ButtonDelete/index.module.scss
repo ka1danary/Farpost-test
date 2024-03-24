@@ -1,0 +1,19 @@
+.ButtonDelete {
+    z-index: 2;
+    border-radius: 6px;
+    width: 9vw;
+    min-width: 150px;
+    min-height: 50px;
+    height: 3vh;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    background: #FF6464;
+    color: rgb(255, 255, 255);
+    font-size: 1em;
+    font-weight: 500;
+    transition: opacity 0.3s;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}

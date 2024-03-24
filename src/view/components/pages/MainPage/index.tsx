@@ -14,7 +14,9 @@ export const MainPage: React.FC<MainPageProps> = () => {
 
   return (
     <div className={styles.Page}>
-      <div className={styles.MainPageTitle}>Список задач ({tasks.length})</div>
+      <div className={styles.MainPageTitle}>
+        <div>Список задач </div>({tasks.length})
+      </div>
       <div className={styles.MainPage}>
         <div className={styles.MainPageSideBar}>
           <div>
@@ -22,8 +24,12 @@ export const MainPage: React.FC<MainPageProps> = () => {
           </div>
         </div>
         <div className={styles.MainPageCenter}>
-          <ButtonAdd />
-          <ListTaskCard />
+          <div className={styles.MainPageCenterButtonAdd}>
+            <ButtonAdd />
+          </div>
+          <div>
+            <ListTaskCard />
+          </div>
         </div>
       </div>
     </div>

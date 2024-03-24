@@ -1,3 +1,9 @@
+.View {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .ViewPage {
 
 
@@ -5,10 +11,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1.5em;
         color: rgb(0, 0, 0);
         font-family: Roboto;
-        font-size: 36px;
+        font-size: 2em;
         font-weight: 500;
         line-height: 42px;
         letter-spacing: 0%;
@@ -18,9 +23,33 @@
     }
 
     &Task {
-        
-        &Card{
-            background-color: white;
+
+        &ButtonBox {
+            display: flex;
+            justify-content: space-around;
+            width: 50vW;
+            min-width: 300px;
+
+        }
+
+        &Card {
+
+
+            &Content {
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+                margin-top: 20px;
+                height: 70vh;
+                width: 50vW;
+                min-height: 170px;
+                border-radius: 6px;
+                box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
+                background: rgb(255, 255, 255);
+
+                
+            }
+
         }
     }
 }

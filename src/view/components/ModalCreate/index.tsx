@@ -13,8 +13,8 @@ interface ModalCreate {
 export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
   //const [createTask] = useFarpostStore((state) => [state.createTask]);
   const [date, setDate] = useState("...");
-  const [name, setName] = useState("Новая задача");
-  const [title, setTitle] = useState("Описание");
+  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
   const [priority, setPriority] = useState("None");
   const [mark, setMark] = useState("...");
 
@@ -35,11 +35,11 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
             </div>
             <div className={styles.ModalCreateContentDataElement}>
               <div>Название</div>
-              <Input set={setName} placeholder={"Новая задача"} />
+              <Input set={setName} placeholder={"Название задачи"}/>
             </div>
             <div className={styles.ModalCreateContentDataElement}>
               <div>Описание</div>
-              <Input set={setTitle} placeholder={"Описание задачи"} />
+              <Input set={setTitle} placeholder={"Описание задачи"}/>
             </div>
             <div className={styles.ModalCreateContentDataElement}>
               <div className={styles.ModalCreateContentDataElementSelect}>

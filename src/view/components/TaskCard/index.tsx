@@ -8,19 +8,24 @@ import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 interface Task {
   id: string;
   name: string;
+  title?: string;
   createdAt: string;
   priority: string;
-  mark: string[];
+  mark: string;
 }
 
 export const TaskCard: React.FC<Task> = ({
   id,
   name,
+  title,
   createdAt,
   priority,
   mark,
 }) => {
-  const [removeTask] = useFarpostStore((state) => [state.removeTask]);
+  const [removeTask, setId] = useFarpostStore((state) => [
+    state.removeTask,
+    state.setId
+  ]);
   const setColor = (color: string) => {
     if (color === "Hight") {
       return (
@@ -99,7 +104,7 @@ export const TaskCard: React.FC<Task> = ({
   return (
     <div>
       <div className={styles.TaskCard}>
-        <Link to="/view">
+        <Link to="/view" onClick={() => setId(id)}>
           <div>
             <div className={styles.TitleBox}>
               {setColor(priority)}

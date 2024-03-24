@@ -1,41 +1,42 @@
-import { ButtonnBack } from "../../buttons/ButtonBack";
-import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 import { ButtonEdit } from "../../buttons/ButtonEdit";
+import { TaskCardView } from "../../TaskCardView";
+import { ButtonDelete } from "../../buttons/ButtonDelete";
+import { useFarpostStore } from "../../../../data/stores/useFarpostStore";
 
 interface Props {
-  key: string;
-  id: string;
-  name: string;
-  createdAt: string;
-  priority: number;
-  mark: string[];
+  
 }
 
-export const ViewPage: React.FC<Props> = ({
-  id,
-  name,
-  createdAt,
-  priority,
-  mark,
-}) => {
+export const ViewPage: React.FC<Props> = () => {
+  const [task] = useFarpostStore( state => [
+    state.task
+  ])
   return (
-    <div className={styles.ViewPage}>
-      <div className={styles.ViewPageTitle}>
-        <div>Просмотр задачи</div>
-      </div>
-      <div className={styles.ViewPageTask}>
-        <div className={styles.ViewPageTaskButtonBox}>
-          <div>
-            <ButtonEdit href={"/"} title={"Назад"} type={"void"} />
-            <ButtonEdit href={"/edit"} title={"Редактировать"} type={"calm"} />
+    <div className={styles.View}>
+      <div className={styles.ViewPage}>
+        <div className={styles.ViewPageTitle}>
+          <div>Просмотр задачи</div>
+        </div>
+        <div className={styles.ViewPageTask}>
+          <div className={styles.ViewPageTaskButtonBox}>
+            <div className={styles.ViewPageTaskButtonBoxLeft}>
+              <ButtonEdit href={"/"} title={"Назад"} type={"void"} />
+              <ButtonEdit
+                href={"/edit"}
+                title={"Редактировать"}
+                type={"calm"}
+              />
+            </div>
+            <div>
+              <ButtonDelete id={task.id}/>
+            </div>
           </div>
-
-          <div>
-            <ButtonEdit href={"/edit"} title={"Удалить"} type={"danger"} />
+          <div className={styles.ViewPageTaskCard}>
+            <TaskCardView
+            />
           </div>
         </div>
-        <div className={styles.ViewPageTaskCard}>Карточка</div>
       </div>
     </div>
   );
