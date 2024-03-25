@@ -7,7 +7,7 @@ import { ModalCreate } from "../../ModalCreate";
 interface Props {}
 
 export const ButtonAdd: React.FC<Props> = () => {
-  const [vision, setVision] = useState(false);
+  const [vision, setVision] = useState<boolean>(false);
   const root = [styles.Modal];
 
   if (vision) {
@@ -21,7 +21,7 @@ export const ButtonAdd: React.FC<Props> = () => {
         <ModalCreate setActive={setVision} />
       </div>
       <button className={styles.ButtonAdd} onClick={() => setVision(true)}>
-        Добавить задачу
+        Добавить задачу + 
       </button>
     </div>
   );

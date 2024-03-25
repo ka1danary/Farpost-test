@@ -17,15 +17,15 @@ interface Task {
 export const TaskCard: React.FC<Task> = ({
   id,
   name,
-  title,
   createdAt,
   priority,
   mark,
 }) => {
   const [removeTask, setId] = useFarpostStore((state) => [
     state.removeTask,
-    state.setId
+    state.setId,
   ]);
+
   const setColor = (color: string) => {
     if (color === "Hight") {
       return (
@@ -58,7 +58,7 @@ export const TaskCard: React.FC<Task> = ({
             cx="7.500000"
             cy="7.500000"
             r="7.500000"
-            fill="#FFDF8E"
+            fill="#FFED48"
             fill-opacity="1.000000"
           />
         </svg>
@@ -76,12 +76,12 @@ export const TaskCard: React.FC<Task> = ({
             cx="7.500000"
             cy="7.500000"
             r="7.500000"
-            fill="#9CE9A4"
+            fill="#60D5A4"
             fill-opacity="1.000000"
           />
         </svg>
       );
-    } else if (color === "None") {
+    } else {
       return (
         <svg
           width="15.000000"
@@ -108,15 +108,19 @@ export const TaskCard: React.FC<Task> = ({
           <div>
             <div className={styles.TitleBox}>
               {setColor(priority)}
-              <h2 className={styles.TaskCardTitle}>{name} </h2>
+              <h2 className={styles.TaskCardTitle}>{ (name.length === 0) ?(<div>...</div>) : name } </h2>
             </div>
 
             <div className={styles.TaskCardContent}>
-              <div className={styles.TaskCardContent}>Дата: {createdAt}</div>
               <div className={styles.TaskCardContent}>
-                Приоритет: {priority}
+                Дата: {createdAt.length === 0 ? <>...</> : createdAt}
               </div>
-              <div className={styles.TaskCardContent}>Метка: {mark}</div>
+              <div className={styles.TaskCardContent}>
+                Приоритет: {priority.length === 0 ? <>...</> : priority}
+              </div>
+              <div className={styles.TaskCardContent}>
+                Метка: {mark.length === 0 ? <>...</> : mark}
+              </div>
             </div>
           </div>
         </Link>

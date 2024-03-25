@@ -14,10 +14,10 @@ interface Task {
 interface TaskStore {
   tasks: Task[];
   task: Task;
-  id : string,
+  id: string;
   sortTaskByNewDate: () => void;
   sortTaskByOldDate: () => void;
-  setId: (id : string) => void
+  setId: (id: string) => void;
 
   setTaskInfoString: (
     id: string,
@@ -60,17 +60,21 @@ const globalTask: Task = {
 export const useFarpostStore = create<TaskStore>((set, get) => ({
   tasks: data,
   task: globalTask,
-  id: '',
+  id: "",
   sortTaskByNewDate: () => {
     const { tasks } = get();
     set({
-      tasks: tasks.slice().sort((a: Task, b: Task) => (a.createdAt < b.createdAt ? 1 : -1)),
+      tasks: tasks
+        .slice()
+        .sort((a: Task, b: Task) => (a.createdAt > b.createdAt ? 1 : -1)),
     });
   },
   sortTaskByOldDate: () => {
     const { tasks } = get();
     set({
-      tasks: tasks.slice().sort((a: Task, b: Task) => (a.createdAt > b.createdAt ? 1 : -1)),
+      tasks: tasks
+        .slice()
+        .sort((a: Task, b: Task) => (a.createdAt < b.createdAt ? 1 : -1)),
     });
   },
 
@@ -107,6 +111,7 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
 
   removeTask: (id: string) => {
     const { tasks } = get();
+    console.log("Удалена" + id);
     set({
       tasks: tasks.filter((task) => task.id != id),
     });
@@ -128,9 +133,9 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
     return tasks.find((task) => task.id === id);
   },
   setId: (newId) => {
-    console.log(newId);
+    console.log("Новый Id" + newId);
     set({
-      id: newId
+      id: newId,
     });
-  }
+  },
 }));

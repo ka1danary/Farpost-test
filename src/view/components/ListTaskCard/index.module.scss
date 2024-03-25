@@ -1,8 +1,8 @@
 .List {
-    
     height: 70vh;
     overflow-y: scroll;
     margin-top: 50px;
+    margin-bottom: 40px;
 
     &::-webkit-scrollbar {
         width: 15px;
@@ -10,10 +10,10 @@
     }
      
     &::-webkit-scrollbar-track {
-        background-color: #edece993;
+        background-color: #e4e3e393;
     }
     &::-webkit-scrollbar-thumb{
-        background-color: #008bdb85;
+        background-color: #a782ec91;
         border-radius: 5px;
         
     }

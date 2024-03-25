@@ -16,7 +16,7 @@ export const EditPage: React.FC<Props> = () => {
           </div>
           <div className={styles.EditPageBoxContent}>
               <div  className={styles.EditPageBoxContentButtons}>
-                <ButtonEdit href='/view' title='Назад' type='void'></ButtonEdit>
+                <ButtonEdit href='/view' title='Назад' type='void' ></ButtonEdit>
               </div>
               <div  className={styles.EditPageBoxContentCard}>
                   <TaskCardEdit/>

@@ -33,11 +33,21 @@
         &Data {
             font-size: 1.3em;
 
+           
+
             &Element {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 40px;
 
+                &Svg {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    svg {
+                        margin-right: 10px;
+                    }
+                }
 
                 input {
                     margin-left: 20px;

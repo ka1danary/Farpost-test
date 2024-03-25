@@ -1,20 +1,21 @@
 .Input {
-    background-color: aliceblue;
+   
     min-height: 20px;
     border: none;
     width: 30vw;
     border-radius: 5px;
     padding: 10px;
     font-size: 0.7em;
-    border: 1px solid rgb(227, 242, 255);
+    background-color: #f5f0fd;
+    border: 1px solid #a782ec42;
     &:hover {
-        border: 1px solid rgb(202, 229, 252);
+        border: 1px solid #b197dd;
     }
 
     &:active {
-        border: 1px solid rgb(202, 229, 252);
+        border: 1px solid #b197dd;
     }
     &:focus {
-        border: 1px solid rgb(202, 229, 252);
+        border: 1px solid #b197dd;
     }
 }

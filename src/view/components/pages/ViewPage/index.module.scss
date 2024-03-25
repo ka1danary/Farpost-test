@@ -18,7 +18,7 @@
         line-height: 42px;
         letter-spacing: 0%;
         text-align: left;
-        margin: 20px;
+        margin-top: 20px;
         margin-bottom: 50px;
     }
 
@@ -26,14 +26,20 @@
 
         &ButtonBox {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
             width: 50vW;
             min-width: 300px;
+            &Left {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 20px;
+            }
 
         }
 
         &Card {
-
 
             &Content {
                 display: flex;
@@ -46,8 +52,6 @@
                 border-radius: 6px;
                 box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
                 background: rgb(255, 255, 255);
-
-                
             }
 
         }

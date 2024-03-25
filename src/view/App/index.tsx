@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import styles from "./index.module.scss";
@@ -11,6 +11,7 @@ export const App: React.FC = () => {
 
   return (
     <div className={styles.article}>
+      
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/view" element={<ViewPage / >} />

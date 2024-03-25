@@ -2,14 +2,14 @@
 .ButtonVoid {
     border-radius: 6px;
     font-weight: 500;
-    width: 10vw;
-    min-width: 200px;
+    width: 5vw;
+    min-width: 100px;
     min-height: 50px;
     height: 3vh;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
     background: rgb(255, 255, 255);
     transition: opacity 0.3s;
-    margin-left: 10px;
+    
 
     &:hover {
         opacity: 0.7;
@@ -17,7 +17,7 @@
 }
 
 .ButtonDanger {
-    background-color: #FF6464;
+    background-color: #FD7869;
     border-radius: 6px;
     width: 10vw;
     min-width: 200px;
@@ -36,7 +36,7 @@
 }
 
 .ButtonCalm {
-    background: rgb(34, 147, 211);
+    background: #A782EC;
     border-radius: 6px;
     width: 10vw;
     min-width: 200px;
@@ -48,9 +48,18 @@
     font-size: 1em;
     font-weight: 500;
     transition: opacity 0.3s;
-    margin-left: 20px;
+    
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     &:hover {
         opacity: 0.7;
+    }
+
+    &::selection {
+        background-color: #6200ff;
     }
 }

@@ -18,9 +18,9 @@ export const TaskCardEdit: React.FC<Props> = () => {
   const task = findTask(id)
 
   const [name, setName] = useState(task.name)
-  const [title, setTitle] = useState(task.name)
-  const [priority, setPriority] = useState(task.name)
-  const [mark, setMark] = useState(task.name)
+  const [title, setTitle] = useState(task.title)
+  const [priority, setPriority] = useState(task.priority)
+  const [mark, setMark] = useState(task.mark)
 
   return (
     <div className={styles.TaskCardView}>

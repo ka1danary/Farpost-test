@@ -2,16 +2,10 @@ import styles from "./index.module.scss";
 import { ButtonEdit } from "../../buttons/ButtonEdit";
 import { TaskCardView } from "../../TaskCardView";
 import { ButtonDelete } from "../../buttons/ButtonDelete";
-import { useFarpostStore } from "../../../../data/stores/useFarpostStore";
 
-interface Props {
-  
-}
+interface Props {}
 
 export const ViewPage: React.FC<Props> = () => {
-  const [task] = useFarpostStore( state => [
-    state.task
-  ])
   return (
     <div className={styles.View}>
       <div className={styles.ViewPage}>
@@ -21,7 +15,10 @@ export const ViewPage: React.FC<Props> = () => {
         <div className={styles.ViewPageTask}>
           <div className={styles.ViewPageTaskButtonBox}>
             <div className={styles.ViewPageTaskButtonBoxLeft}>
-              <ButtonEdit href={"/"} title={"Назад"} type={"void"} />
+              <div style={{'marginRight' : '15px'}}> 
+                <ButtonEdit href={"/"} title={"Назад"} type={"void"} />
+              </div>
+
               <ButtonEdit
                 href={"/edit"}
                 title={"Редактировать"}
@@ -29,12 +26,11 @@ export const ViewPage: React.FC<Props> = () => {
               />
             </div>
             <div>
-              <ButtonDelete id={task.id}/>
+              <ButtonDelete />
             </div>
           </div>
           <div className={styles.ViewPageTaskCard}>
-            <TaskCardView
-            />
+            <TaskCardView />
           </div>
         </div>
       </div>

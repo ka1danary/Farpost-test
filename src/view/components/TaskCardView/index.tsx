@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 import styles from "./index.module.scss";
 

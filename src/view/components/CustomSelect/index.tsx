@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 
 interface Props {
   title?: string;
-  values?: string[];
+  values: string[];
   set: (val: string) => void;
 }
 
