@@ -1,12 +1,11 @@
 import { create } from "zustand";
 import { generateId } from "../helpers";
-import { format } from "@formkit/tempo"
 import data from "../MOCK_DATA.json";
 
 interface Task {
   id: string;
   name: string;
-  createdAt: string; 
+  createdAt: Date; 
   title: string;
   priority: string[];
   mark: string[];
@@ -25,7 +24,7 @@ interface TaskStore {
   setTaskInfoString: (
     id: string,
     name: string,
-    createdAt: string,
+    createdAt: Date,
     title: string,
     priorty: string[],
     mark: string[]
@@ -53,7 +52,7 @@ interface TaskStore {
 const globalTask: Task = {
   id: "",
   name: "Name",
-  createdAt: "00/00/0000",
+  createdAt: new Date,
   title: "Title",
   priority: ["Low"],
   mark: ["Designed"],
@@ -65,35 +64,30 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
   id: "",
   sortTaskByNewDate: () => {
     const { tasks } = get();
-    set({
-      tasks: tasks
-        .slice()
-        .sort((a: Task, b: Task) => (a.createdAt > b.createdAt ? 1 : -1)),
-    });
+    const sortedTasks = [...tasks].sort((a: Task, b: Task) => (new Date(a.createdAt).getTime() < new Date(b.createdAt).getTime() ? 1 : -1));
+    set({ tasks: sortedTasks });
   },
   sortTaskByOldDate: () => {
     const { tasks } = get();
-    set({
-      tasks: tasks
-        .slice()
-        .sort((a: Task, b: Task) => (a.createdAt < b.createdAt ? 1 : -1)),
-    });
+    const sortedTasks = [...tasks].sort((a: Task, b: Task) => (new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime() ? 1 : -1));
+    set({ tasks: sortedTasks });
   },
+  
 
   createTask: (name, title, priority, mark) => {
-    const { tasks } = get();
-    const newTask = {
-      id: generateId(),
-      name,
-      createdAt: format(new Date(), { date: 'full', time: "short" }),
-      title,
-      priority,
-      mark,
-    };
-    set({
-      tasks: [newTask, ...tasks], // Добавляем новую задачу в начало массива tasks
-    });
-  },
+  const { tasks } = get();
+  const newTask = {
+    id: generateId(),
+    name,
+    createdAt: new Date(),
+    title,
+    priority,
+    mark,
+  };
+  set({
+    tasks: [newTask, ...tasks], 
+  });
+},
   stopVisible: (vision) => !vision,
 
   setTaskInfoString: (id, name, createdAt, title, priority, mark) => {

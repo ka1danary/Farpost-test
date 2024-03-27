@@ -1,4 +1,5 @@
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
+import { format } from "@formkit/tempo";
 import styles from "./index.module.scss";
 
 interface Props {}
@@ -19,7 +20,7 @@ export const TaskCardView: React.FC<Props> = () => {
           </div>
           <div className={styles.TaskCardViewContentBoxName}>
             <p>Дата создания</p>
-            {task.createdAt.length === 0 ? <div>...</div> : task.createdAt}
+            {format(task.createdAt, {date : "full", time : "short"})}
           </div>
           <div className={styles.TaskCardViewContentBoxName}>
             <p>Приоритет</p>

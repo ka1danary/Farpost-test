@@ -18,6 +18,13 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
   const [priority, setPriority] = useState<string[]>([]);
   const [mark, setMark] = useState<string[]>([]);
 
+  const resetValues = () => {
+    setName("");
+    setTitle("");
+    setPriority([]);
+    setMark([]);
+  };
+
   useEffect(() => {
     console.log(priority, mark);
   }, [priority, mark]);
@@ -100,6 +107,7 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
                     values={["Low", "Medium", "High"]}
                     setPriority={setPriority}
                   />
+                  {priority}
                 </div>
                 <div>
                   <CustomSelectMarks
@@ -107,6 +115,7 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
                     values={["Development", "Designed", "Research"]}
                     setMarks={setMark}
                   />
+                  {mark}
                 </div>
               </div>
             </div>
@@ -119,6 +128,7 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
               priority={priority}
               mark={mark}
               setName={setName}
+              clean={resetValues}
             />
           </div>
         </div>

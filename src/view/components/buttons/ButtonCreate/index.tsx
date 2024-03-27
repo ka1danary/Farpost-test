@@ -11,6 +11,7 @@ interface Props {
   priority: string[];
   mark: string[];
   setName: (name: string) => void;
+  clean: () => void
 }
 
 export const ButtonCreate: React.FC<Props> = ({
@@ -19,6 +20,7 @@ export const ButtonCreate: React.FC<Props> = ({
   title,
   priority,
   mark,
+  clean
 }) => {
   const [createTask] = useFarpostStore((state) => [state.createTask]);
 
@@ -29,6 +31,7 @@ export const ButtonCreate: React.FC<Props> = ({
         onClick={() => {
           createTask(name, title, priority, mark);
           setVision(false);
+          clean()
         }}
       >
         Создать

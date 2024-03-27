@@ -1,4 +1,5 @@
 import React from "react";
+import { format } from "@formkit/tempo";
 import { Link } from "react-router-dom";
 
 import styles from "./index.module.scss";
@@ -9,7 +10,7 @@ interface Task {
   id: string;
   name: string;
   title?: string;
-  createdAt: string;
+  createdAt: Date;
   priority: string[];
   mark: string[];
 }
@@ -74,7 +75,7 @@ export const TaskCard: React.FC<Task> = ({
 
           <div className={styles.TaskCardContent}>
             <div className={styles.TaskCardContentEl}>
-              <div>Дата: {"\u00A0"}</div> {createdAt || <span>...</span>}
+              <div>Дата: {"\u00A0"}</div> {format(createdAt, {date : "full", time : "short"})}
             </div>
             <div className={styles.TaskCardContentEl}>
               <div>Приоритет: {"\u00A0"}</div>{" "}
