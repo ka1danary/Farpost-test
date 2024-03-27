@@ -3,9 +3,7 @@ import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 
 import styles from "./index.module.scss";
 
-interface ListTaskCard {
-
-}
+interface ListTaskCard {}
 
 export const ListTaskCard: React.FC = () => {
   const tasks = useFarpostStore((state) => state.tasks);

@@ -1,7 +1,6 @@
 .TaskCardView {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
     margin-top: 20px;
     height: 70vh;
     width: 50vW;
@@ -23,19 +22,18 @@
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: #008bdb85;
+        background-color: #C4AFEB;
         border-radius: 5px;
 
     }
 
     &ContentBox {
-        padding: 20px;
+        padding: 30px;
 
         &Name {
             margin-bottom: 30px;
-            
             word-wrap: break-word;
-            width: 47vW;
+            width: 45vW;
             
             
             p {
@@ -45,9 +43,8 @@
                 margin-bottom: 5px;
             }
             &Title {
-                border: 1px solid #e7e7e7;
-                border-radius: 10px;
-                padding: 20px;
+                
+                
 
             }
 

@@ -1,14 +1,15 @@
 import { create } from "zustand";
 import { generateId } from "../helpers";
+import { format } from "@formkit/tempo"
 import data from "../MOCK_DATA.json";
 
 interface Task {
   id: string;
   name: string;
-  createdAt: string;
+  createdAt: string; 
   title: string;
-  priority: string;
-  mark: string;
+  priority: string[];
+  mark: string[];
 }
 
 interface TaskStore {
@@ -17,6 +18,8 @@ interface TaskStore {
   id: string;
   sortTaskByNewDate: () => void;
   sortTaskByOldDate: () => void;
+  filterCards : (values : string[]) => Task[];
+  
   setId: (id: string) => void;
 
   setTaskInfoString: (
@@ -24,23 +27,22 @@ interface TaskStore {
     name: string,
     createdAt: string,
     title: string,
-    priorty: string,
-    mark: string
+    priorty: string[],
+    mark: string[]
   ) => void;
   createTask: (
     name: string,
-    createdAt: string,
     title: string,
-    priority: string,
-    mark: string
+    priority: string[],
+    mark: string[]
   ) => void;
   stopVisible: (vision: boolean) => boolean;
   updateTask: (
     id: string,
     newName: string,
     newTitle: string,
-    newPriority: string,
-    newMark: string
+    newPriority: string[],
+    newMark: string[]
   ) => void;
   removeTask: (id: string) => void;
   findTask: (id: string) => Task;
@@ -53,8 +55,8 @@ const globalTask: Task = {
   name: "Name",
   createdAt: "00/00/0000",
   title: "Title",
-  priority: "Low",
-  mark: "Designed",
+  priority: ["Low"],
+  mark: ["Designed"],
 };
 
 export const useFarpostStore = create<TaskStore>((set, get) => ({
@@ -78,19 +80,18 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
     });
   },
 
-  createTask: (name, createdAt, title, priority, mark) => {
+  createTask: (name, title, priority, mark) => {
     const { tasks } = get();
     const newTask = {
       id: generateId(),
       name,
-      createdAt,
+      createdAt: format(new Date(), { date: 'full', time: "short" }),
       title,
       priority,
       mark,
     };
-    data.push(newTask);
     set({
-      tasks: [newTask].concat(tasks),
+      tasks: [newTask, ...tasks], // Добавляем новую задачу в начало массива tasks
     });
   },
   stopVisible: (vision) => !vision,
@@ -138,4 +139,9 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
       id: newId,
     });
   },
+  filterCards : (values) => {
+    const {tasks} = get()
+    const copeTasks = tasks.filter((val) => (val.priority || val.mark) === values)
+    return copeTasks
+  }
 }));

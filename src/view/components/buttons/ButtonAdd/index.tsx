@@ -21,7 +21,7 @@ export const ButtonAdd: React.FC<Props> = () => {
         <ModalCreate setActive={setVision} />
       </div>
       <button className={styles.ButtonAdd} onClick={() => setVision(true)}>
-        Добавить задачу + 
+        Добавить задачу
       </button>
     </div>
   );

@@ -6,18 +6,15 @@ import { useFarpostStore } from "../../../../data/stores/useFarpostStore";
 
 interface Props {
   setVision: (vision: boolean) => void;
-  date: string;
   name: string;
   title: string;
-  priority: string;
-  mark: string;
-  setDate: (date: string) => void;
+  priority: string[];
+  mark: string[];
   setName: (name: string) => void;
 }
 
 export const ButtonCreate: React.FC<Props> = ({
   setVision,
-  date,
   name,
   title,
   priority,
@@ -30,7 +27,7 @@ export const ButtonCreate: React.FC<Props> = ({
       <button
         className={styles.ButtonAdd}
         onClick={() => {
-          createTask(name, date, title, priority, mark);
+          createTask(name, title, priority, mark);
           setVision(false);
         }}
       >

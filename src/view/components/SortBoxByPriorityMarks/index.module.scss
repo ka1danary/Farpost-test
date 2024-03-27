@@ -1,16 +1,18 @@
 .SortBox {
+    display: flex;
+    align-items: center;
     border-radius: 6px;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
     background: rgb(255, 255, 255);
     width: 15vw;
     min-width: 250px;
-    min-height: 150px;
-    height: 18vh;
+    min-height: 300px;
+    height: 45vh;
     padding: 20px;
 
 
     &Title {
-        font-size: 1.5em;
+        font-size: 1em;
         font-weight: 500;
         margin-bottom: 10px;
         margin-top: 10px;
@@ -28,10 +30,10 @@
 
         &ButtonSort {
             display: flex;
-            padding: 15px;
+            padding: 20px;
             justify-content: start;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             width: 15vw;
             min-width: 250px;
             height: 5vh;
@@ -64,7 +66,7 @@
 
 @media (max-width: 1280px) {
     .SortBox {
-        
+
 
 
         &Title {

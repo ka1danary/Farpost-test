@@ -1,4 +1,5 @@
 import styles from "./index.module.scss";
+
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 
 interface SortBoxByNewOld {}
@@ -10,10 +11,7 @@ export const SortBoxByNewOld: React.FC<SortBoxByNewOld> = () => {
   ]);
   return (
     <div className={styles.SortBox}>
-      <div className={styles.SortBoxTitle}>
-        
-        Сортировать
-      </div>
+      <div className={styles.SortBoxTitle}>Сортировать</div>
       <div className={styles.SortBoxContent}>
         <button
           className={styles.SortBoxContentButtonSort}
