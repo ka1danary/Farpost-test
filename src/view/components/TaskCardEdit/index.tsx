@@ -36,13 +36,11 @@ export const TaskCardEdit: React.FC<Props> = () => {
 
           <div className={styles.TaskCardViewContentBoxNameSelect}>
             <CustomSelectPriority
-              title={"Приоритет"}
               values={["Low", "Medium", "High"]}
               setPriority={setPriority}
             />
 
             <CustomSelectMarks
-              title={"Отметка"}
               values={["Development", "Designed", "Research"]}
               setMarks={setMark}
             />

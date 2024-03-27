@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
+import MarpOrPrioritySelectBox from "../../MarpOrPrioritySelectBox";
 
 interface Task {
   id: string;
@@ -75,7 +76,8 @@ export const TaskCard: React.FC<Task> = ({
 
           <div className={styles.TaskCardContent}>
             <div className={styles.TaskCardContentEl}>
-              <div>Дата: {"\u00A0"}</div> {format(createdAt, {date : "full", time : "short"})}
+              <div>Дата: {"\u00A0"}</div>{" "}
+              {format(createdAt, { date: "full", time: "short" })}
             </div>
             <div className={styles.TaskCardContentEl}>
               <div>Приоритет: {"\u00A0"}</div>{" "}
@@ -88,7 +90,9 @@ export const TaskCard: React.FC<Task> = ({
               ) : (
                 mark.map((el, index) => (
                   <span key={index}>
-                    {el} {"\u00A0"}
+                    <div style={{'marginRight' : "20px"}}>
+                      <MarpOrPrioritySelectBox values={el} />
+                    </div>
                   </span>
                 ))
               )}

@@ -1,23 +1,33 @@
-import { useState } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./index.module.scss";
 
 interface Props {
-  title?: string;
   values: string[];
   setMarks: (val: string[]) => void;
-  setPriority?: (val: string[]) => void;
+  marks: string[];
 }
 
 export const CustomSelectMarks: React.FC<Props> = ({
-  title,
   values,
   setMarks,
+  marks,
 }) => {
-  const [vision, setVision] = useState(true);
-  const [arrayMarks, setArrayMarks] = useState<string[]>([]);
+  const [vision, setVision] = useState(false);
+  const selectRef = useRef<HTMLDivElement>(null);
 
-  const [newTitle, setNewTitle] = useState(title);
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
+        setVision(!vision);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selectRef]);
+
   const root = [styles.CustomSelectDrop];
 
   if (vision) {
@@ -25,7 +35,7 @@ export const CustomSelectMarks: React.FC<Props> = ({
   }
 
   return (
-    <div className={styles.CustomSelect}>
+    <div ref={selectRef} className={styles.CustomSelect}>
       <div
         className={styles.CustomSelectPreview}
         onClick={() => {
@@ -33,7 +43,7 @@ export const CustomSelectMarks: React.FC<Props> = ({
         }}
       >
         <button className={styles.CustomSelectPreviewContent}>
-          <div>{newTitle}</div>
+          <div>Метка</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24"
@@ -50,22 +60,15 @@ export const CustomSelectMarks: React.FC<Props> = ({
             key={index}
             className={styles.CustomSelectDropRow}
             onClick={() => {
-              setVision(!vision);
-              arrayMarks.push(val);
-              const uniqAndSortArray: string[] = [
-                ...new Set(arrayMarks),
-              ].sort();
-              setArrayMarks(uniqAndSortArray);
-              setMarks(uniqAndSortArray);
+              
+              if (marks.includes(val)) {
+                setMarks(marks.filter((item) => item !== val));
+              } else {
+                setMarks([...marks, val]);
+              }
             }}
           >
-            <button
-              onClick={() => {
-                setNewTitle(val);
-              }}
-            >
-              {val}
-            </button>
+            <button>{val}</button>
           </div>
         ))}
       </div>

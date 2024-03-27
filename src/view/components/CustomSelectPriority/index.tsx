@@ -1,21 +1,31 @@
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./index.module.scss";
 
 interface Props {
-  title?: string;
   values: string[];
   setPriority: (val: string[]) => void;
 }
 
 export const CustomSelectPriority: React.FC<Props> = ({
-  title,
   values,
   setPriority,
 }) => {
-  const [vision, setVision] = useState(true);
-  const arrayPriority: string[] = [];
+  const [vision, setVision] = useState(false);
+  const selectRef = useRef<HTMLDivElement>(null);
 
-  const [newTitle, setNewTitle] = useState(title);
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
+        setVision(!vision);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selectRef]);
+
   const root = [styles.CustomSelectDrop];
 
   if (vision) {
@@ -23,7 +33,7 @@ export const CustomSelectPriority: React.FC<Props> = ({
   }
 
   return (
-    <div className={styles.CustomSelect}>
+    <div ref={selectRef} className={styles.CustomSelect}>
       <div
         className={styles.CustomSelectPreview}
         onClick={() => {
@@ -31,7 +41,7 @@ export const CustomSelectPriority: React.FC<Props> = ({
         }}
       >
         <button className={styles.CustomSelectPreviewContent}>
-          <div>{newTitle}</div>
+          <div>Приоритет</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24"
@@ -48,18 +58,11 @@ export const CustomSelectPriority: React.FC<Props> = ({
             key={index}
             className={styles.CustomSelectDropRow}
             onClick={() => {
-              setVision(!vision);
-              arrayPriority.push(val);
-              setPriority(arrayPriority);
+              setVision(false);
+              setPriority([val]);
             }}
           >
-            <button
-              onClick={() => {
-                setNewTitle(val);
-              }}
-            >
-              {val}
-            </button>
+            <button>{val}</button>
           </div>
         ))}
       </div>

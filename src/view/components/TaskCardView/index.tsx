@@ -1,6 +1,7 @@
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 import { format } from "@formkit/tempo";
 import styles from "./index.module.scss";
+import MarpOrPrioritySelectBox from "../../MarpOrPrioritySelectBox";
 
 interface Props {}
 
@@ -31,7 +32,7 @@ export const TaskCardView: React.FC<Props> = () => {
             {task.mark.length === 0 ? (
               <div>...</div>
             ) : (
-              task.mark.map((el, index) => <span key={index}>{el} </span>)
+              task.mark.map((el, index) => <span key={index}><MarpOrPrioritySelectBox values={el}/> </span>)
             )}
           </div>
           <div className={styles.TaskCardViewContentBoxName}>

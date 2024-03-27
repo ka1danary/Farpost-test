@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { format } from "@formkit/tempo";
 
 import styles from "./index.module.scss";
@@ -7,6 +7,7 @@ import { ButtonCreate } from "../buttons/ButtonCreate";
 import { Input } from "../Input";
 import { CustomSelectMarks } from "../CustomSelectMarks";
 import { CustomSelectPriority } from "../CustomSelectPriority";
+import MarpOrPrioritySelectBox from "../../MarpOrPrioritySelectBox";
 
 interface ModalCreate {
   setActive: (active: boolean) => void;
@@ -24,10 +25,6 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
     setPriority([]);
     setMark([]);
   };
-
-  useEffect(() => {
-    console.log(priority, mark);
-  }, [priority, mark]);
 
   return (
     <div className={styles.ModalCreate} onClick={() => setActive(false)}>
@@ -83,13 +80,13 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
                 {" "}
                 Название
               </div>
-              <Input set={setName} placeholder={"Название задачи"} />
+              <Input set={setName} placeholder={"Название задачи"} newValue={name}/>
             </div>
             <div className={styles.ModalCreateContentDataElement}>
               <div className={styles.ModalCreateContentDataElementSvg}>
                 Описание
               </div>
-              <Input set={setTitle} placeholder={"Описание задачи"} />
+              <Input set={setTitle} placeholder={"Описание задачи"} newValue={title}/>
             </div>
             <hr
               style={{
@@ -103,19 +100,32 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
               <div className={styles.ModalCreateContentDataElementSelect}>
                 <div>
                   <CustomSelectPriority
-                    title={"Приоритет"}
                     values={["Low", "Medium", "High"]}
-                    setPriority={setPriority}
+                    setPriority={(temp) => setPriority(temp)}
+                    
                   />
-                  {priority}
                 </div>
-                <div>
+                <div className={styles.ModalCreateContentDataElementSelectMark}>
                   <CustomSelectMarks
-                    title={"Отметка"}
                     values={["Development", "Designed", "Research"]}
                     setMarks={setMark}
+                    marks={mark}
                   />
-                  {mark}
+                  {mark.map((el, index) => (
+                    <div
+                      key={index}
+                      style={{ marginLeft: "10px", height: "0px" }}
+                    >
+                      <MarpOrPrioritySelectBox values={el}/>
+                    </div>
+                  ))}
+                  <button
+                    onClick={() => {
+                      resetValues();
+                    }}
+                  >
+                    Очистить
+                  </button>
                 </div>
               </div>
             </div>

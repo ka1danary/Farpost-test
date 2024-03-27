@@ -1,0 +1,14 @@
+.Box {
+    font-size: 1em;
+    
+    &Value {
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6vw;
+        min-width: 100px;
+    }
+}

@@ -36,7 +36,7 @@ export const SortBoxByPriorityMarks: React.FC<Props> = () => {
         </div>
         <div className={styles.SortBoxTitle}>Метка</div>
         <div className={styles.SortBoxContent}>
-          <button className={styles.SortBoxContentButtonSort} onClick={() => handleButtonClick('Developed')}>
+          <button className={styles.SortBoxContentButtonSort} onClick={() => handleButtonClick('Development')}>
             <div className={styles.SortBoxContentButtonSortSVG}></div>
             <div>Developed</div>
           </button>

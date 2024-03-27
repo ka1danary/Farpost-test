@@ -41,10 +41,12 @@
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+            word-wrap: break-word;
 
             div {
                 font-weight: 500;
-                color: #707070
+                color: #707070;
+                word-wrap: break-word;
             }
         }
     }
