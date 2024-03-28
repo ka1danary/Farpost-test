@@ -1,11 +1,13 @@
 import { useState } from "react";
+
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 import { Input } from "../Input";
 import styles from "./index.module.scss";
 import { ButtonEdit } from "../buttons/ButtonLink";
-import { CustomSelectPriority } from "../CustomSelectPriority";
-import { CustomSelectMarks } from "../CustomSelectMarks";
 
+import { CustomSelectMarks } from "../CustomSelectMarks";
+import { CustomSelectPriority } from "../CustomSelectPriority";
+import { Textarea } from "../Textarea";
 
 interface Props {}
 
@@ -28,43 +30,36 @@ export const TaskCardEdit: React.FC<Props> = () => {
       <div className={styles.TaskCardViewContent}>
         <div className={styles.TaskCardViewContentTitle}></div>
         <div className={styles.TaskCardViewContentBox}>
-          
           <div className={styles.TaskCardViewContentBoxName}>
-            <p  style={{'marginBottom' : '20px'}} >Название задачи</p>
-            <Input newValue={name} set={setName} placeholder="..."></Input>
+            <p style={{ marginBottom: "20px" }}>Название задачи</p>
+            <Input newValue={name} set={setName} placeholder="..." width="45vw"></Input>
           </div>
-
           <div className={styles.TaskCardViewContentBoxNameSelect}>
-            <CustomSelectPriority
-              values={["Low", "Medium", "High"]}
-              setPriority={setPriority}
-            />
-
-            <CustomSelectMarks
-              values={["Development", "Designed", "Research"]}
-              setMarks={setMark}
-            />
+            <CustomSelectPriority values={['Low', 'Medium', 'High']} setPriority={setPriority} priority={priority} />
+            <CustomSelectMarks values={['Development', 'Design', 'Research']} setMarks={setMark} marks={mark}/>
           </div>
           <hr
-              style={{
-                backgroundColor: "#c9b6ef",
-                height: "1px",
-                border: "none",
-                width: "47vw",
-              }}
-            />
-          <div className={styles.TaskCardViewContentBoxName} style={{'marginTop' : '30px'}}>
-            <p style={{'marginBottom' : '20px'}}>Описание</p>
-            <Input
-              newValue={title}
-              set={setTitle}
-              placeholder="..."
-            ></Input>
+            style={{
+              backgroundColor: "#c9b6ef",
+              height: "1px",
+              border: "none",
+              width: "47vw",
+            }}
+          />
+          <div
+            className={styles.TaskCardViewContentBoxName}
+            style={{ marginTop: "30px" }}
+          >
+            <p style={{ marginBottom: "20px" }}>Описание</p>
+            <Textarea newValue={title} set={setTitle} placeholder="..." width="45vw" height="15vh"></Textarea>
           </div>
         </div>
+        
         <div
+          className={styles.TaskCardViewContentButton}
           onClick={() => {
             updateTask(task.id, name, title, priority, mark);
+            
           }}
         >
           <ButtonEdit href="/view" title="Сохранить" type="calm" />

@@ -7,7 +7,9 @@ import { ButtonCreate } from "../buttons/ButtonCreate";
 import { Input } from "../Input";
 import { CustomSelectMarks } from "../CustomSelectMarks";
 import { CustomSelectPriority } from "../CustomSelectPriority";
-import MarpOrPrioritySelectBox from "../../MarpOrPrioritySelectBox";
+import MarkBox from "../../MarkBox";
+import { PriorityBox } from "../../PriorityBox";
+import { Textarea } from "../Textarea";
 
 interface ModalCreate {
   setActive: (active: boolean) => void;
@@ -80,13 +82,23 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
                 {" "}
                 Название
               </div>
-              <Input set={setName} placeholder={"Название задачи"} newValue={name}/>
+              <Input
+                set={setName}
+                placeholder={"Название задачи"}
+                newValue={name}
+                width="40vw"
+              />
             </div>
             <div className={styles.ModalCreateContentDataElement}>
               <div className={styles.ModalCreateContentDataElementSvg}>
                 Описание
               </div>
-              <Input set={setTitle} placeholder={"Описание задачи"} newValue={title}/>
+              <Textarea
+                set={setTitle}
+                newValue={title}
+                width="40vw"
+                placeholder={"Описание задачи"}
+              />
             </div>
             <hr
               style={{
@@ -96,38 +108,58 @@ export const ModalCreate: React.FC<ModalCreate> = ({ setActive }) => {
                 width: "50vw",
               }}
             />
-            <div className={styles.ModalCreateContentDataElement}>
-              <div className={styles.ModalCreateContentDataElementSelect}>
+            <div className={styles.ModalCreateContentDataElementSelect}>
+              <div className={styles.ModalCreateContentDataElementSelectBox}>
                 <div>
                   <CustomSelectPriority
                     values={["Low", "Medium", "High"]}
                     setPriority={(temp) => setPriority(temp)}
-                    
+                    priority={priority}
                   />
                 </div>
                 <div className={styles.ModalCreateContentDataElementSelectMark}>
                   <CustomSelectMarks
-                    values={["Development", "Designed", "Research"]}
+                    values={["Development", "Design", "Research"]}
                     setMarks={setMark}
                     marks={mark}
                   />
+                </div>
+                <span>
+                  {priority.map((el, index) => (
+                    <div
+                      key={index}
+                      style={{ marginLeft: "10px", height: "0px" }}
+                    >
+                      <PriorityBox color={[el]} />
+                    </div>
+                  ))}
                   {mark.map((el, index) => (
                     <div
                       key={index}
                       style={{ marginLeft: "10px", height: "0px" }}
                     >
-                      <MarpOrPrioritySelectBox values={el}/>
+                      <MarkBox values={el} />
                     </div>
                   ))}
-                  <button
-                    onClick={() => {
-                      resetValues();
-                    }}
-                  >
-                    Очистить
-                  </button>
-                </div>
+                </span>
               </div>
+
+              <button
+                className={styles.ModalCreateContentDataElementButton}
+                onClick={() => {
+                  resetValues();
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                </svg>
+                <span>Очистить</span>
+              </button>
             </div>
           </div>
           <div className={styles.ModalCreateContentButton}>

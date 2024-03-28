@@ -32,12 +32,12 @@
 
         &Data {
             font-size: 1em;
-
-           
+            
 
             &Element {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 margin-bottom: 40px;
 
                 &Svg {
@@ -52,19 +52,39 @@
                 input {
                     margin-left: 20px;
                 }
+                &Button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
                 &Select {
                    display: flex;
-                   justify-content: space-around;
+                   justify-content: space-between;
+                   align-items: center;
+                   
                    
                     &Box {
-                        
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+
+                        span {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 25px;
+
+                            justify-content: space-between;
+                        }
                     }
 
                     &Mark {
                         display: flex;
                         align-items: center;
                         
+                        button {
+                            display: flex;
+                        }
                     }
                 }
             }

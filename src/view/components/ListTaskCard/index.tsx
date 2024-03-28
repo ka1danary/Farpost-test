@@ -1,13 +1,25 @@
 import { TaskCard } from "../TaskCard";
-import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 
 import styles from "./index.module.scss";
 
-interface ListTaskCard {}
+interface Task {
+  id: string;
+  name: string;
+  createdAt: Date; 
+  title: string;
+  priority: string[];
+  mark: string[];
+}
 
-export const ListTaskCard: React.FC = () => {
-  const tasks = useFarpostStore((state) => state.tasks);
+interface ListTaskCard {
+  tasks : Task[];
+}
 
+export const ListTaskCard: React.FC<ListTaskCard> = ({
+  tasks
+}) => {
+
+  
   return (
     <div className={styles.List}>
       {tasks.length != 0 ? (
@@ -24,7 +36,7 @@ export const ListTaskCard: React.FC = () => {
         ))
       ) : (
         <div className={styles.Title}>
-          <div>У вас пока нет задач</div>
+          <div>Пусто</div>
         </div>
       )}
     </div>

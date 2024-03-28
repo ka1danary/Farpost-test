@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
-import MarpOrPrioritySelectBox from "../../MarpOrPrioritySelectBox";
+import MarkBox from "../../MarkBox";
 
 interface Task {
   id: string;
@@ -91,7 +91,7 @@ export const TaskCard: React.FC<Task> = ({
                 mark.map((el, index) => (
                   <span key={index}>
                     <div style={{'marginRight' : "20px"}}>
-                      <MarpOrPrioritySelectBox values={el} />
+                      <MarkBox values={el}/>
                     </div>
                   </span>
                 ))

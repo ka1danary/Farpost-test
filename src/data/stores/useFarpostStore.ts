@@ -15,6 +15,8 @@ interface TaskStore {
   tasks: Task[];
   task: Task;
   id: string;
+  propertiesForFilter : string[];
+  setPropertiesForFilter : (prop : string []) => void;
   sortTaskByNewDate: () => void;
   sortTaskByOldDate: () => void;
   filterCards : (values : string[]) => Task[];
@@ -61,6 +63,7 @@ const globalTask: Task = {
 export const useFarpostStore = create<TaskStore>((set, get) => ({
   tasks: data,
   task: globalTask,
+  propertiesForFilter : [],
   id: "",
   sortTaskByNewDate: () => {
     const { tasks } = get();
@@ -73,7 +76,6 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
     set({ tasks: sortedTasks });
   },
   
-
   createTask: (name, title, priority, mark) => {
   const { tasks } = get();
   const newTask = {
@@ -135,7 +137,19 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
   },
   filterCards : (values) => {
     const {tasks} = get()
-    const copeTasks = tasks.filter((val) => (val.priority || val.mark) === values)
-    return copeTasks
+    const filteredTasks = tasks.filter(task => {
+      return values.every(value => task.priority.includes(value) || task.mark.includes(value));
+    });
+    return filteredTasks;
+  },
+
+  setPropertiesForFilter : (prop) => {
+    const {propertiesForFilter} = get()
+    
+    set({
+      propertiesForFilter : prop
+    })
+    console.log('Значения для фильтров' + propertiesForFilter)
   }
+
 }));

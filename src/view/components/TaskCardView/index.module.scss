@@ -34,8 +34,21 @@
             margin-bottom: 30px;
             word-wrap: break-word;
             width: 45vW;
-            
-            
+
+            &Date {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 10vw;
+            }
+
+            &Marks {
+                display: flex;
+                align-items: center;
+                
+               
+                
+            }
             p {
                 font-size: 1.3em;
                 color: #a5a5a5;

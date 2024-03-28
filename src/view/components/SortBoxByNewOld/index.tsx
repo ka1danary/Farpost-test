@@ -1,4 +1,5 @@
 import styles from "./index.module.scss";
+import { useState } from "react";
 
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 
@@ -9,13 +10,30 @@ export const SortBoxByNewOld: React.FC<SortBoxByNewOld> = () => {
     state.sortTaskByNewDate,
     state.sortTaskByOldDate,
   ]);
+
+  const [activeSort, setActiveSort] = useState<string | null>(null);
+
+  const handleSortByNewDate = () => {
+    sortTaskByNewDate();
+    console.log('Отсортировано по возрастанию')
+    setActiveSort("new");
+  };
+
+  const handleSortByOldDate = () => {
+    sortTaskByOldDate();
+    console.log('Отсортировано по убыванию')
+    setActiveSort("old");
+  };
+
   return (
     <div className={styles.SortBox}>
       <div className={styles.SortBoxTitle}>Сортировать</div>
       <div className={styles.SortBoxContent}>
         <button
-          className={styles.SortBoxContentButtonSort}
-          onClick={sortTaskByNewDate}
+          className={`${styles.SortBoxContentButtonSort} ${
+            activeSort === "new" ? styles.ActiveSort : ""
+          }`}
+          onClick={handleSortByNewDate}
         >
           <div className={styles.SortBoxContentButtonSortSVG}>
             <svg
@@ -30,8 +48,10 @@ export const SortBoxByNewOld: React.FC<SortBoxByNewOld> = () => {
           <div>Новые</div>
         </button>
         <button
-          className={styles.SortBoxContentButtonSort}
-          onClick={sortTaskByOldDate}
+          className={`${styles.SortBoxContentButtonSort} ${
+            activeSort === "old" ? styles.ActiveSort : ""
+          }`}
+          onClick={handleSortByOldDate}
         >
           <div className={styles.SortBoxContentButtonSortSVG}>
             <svg

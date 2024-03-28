@@ -9,20 +9,22 @@
         width: 15px;
 
     }
-     
+
     &::-webkit-scrollbar-track {
         background-color: #e4e3e393;
     }
-    &::-webkit-scrollbar-thumb{
+
+    &::-webkit-scrollbar-thumb {
         background-color: #a782ec91;
         border-radius: 5px;
-        
+
     }
 }
 
 .Title {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
     margin-top: 20px;
     height: 20vh;
@@ -31,5 +33,5 @@
     border-radius: 6px;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
     background: rgb(255, 255, 255);
-    
+
 }

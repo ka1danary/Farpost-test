@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import styles from "./index.module.scss";
 
@@ -13,7 +13,13 @@ import { SortBoxByPriorityMarks } from "../../SortBoxByPriorityMarks";
 interface MainPageProps {}
 
 export const MainPage: React.FC<MainPageProps> = () => {
-  const [tasks] = useFarpostStore((state) => [state.tasks]);
+
+  const [tasks, propertiesForFilter, filterCards] = useFarpostStore((state) => [state.tasks, state.propertiesForFilter, state.filterCards]);
+  const [newTasks, setNewTasks] = useState(tasks)
+
+  useEffect(() => {
+    setNewTasks(filterCards(propertiesForFilter))
+  }, [propertiesForFilter, tasks])
 
   return (
     <div className={styles.Page}>
@@ -40,7 +46,7 @@ export const MainPage: React.FC<MainPageProps> = () => {
         </div>
         {tasks.length > 0 && (
           <div style={{ fontSize: "1em", color: "#6B0D89" }}>
-            ({tasks.length})
+            ({newTasks.length})
           </div>
         )}
       </div>
@@ -58,7 +64,7 @@ export const MainPage: React.FC<MainPageProps> = () => {
             <ButtonAdd />
           </div>
           <div>
-            <ListTaskCard />
+            <ListTaskCard tasks={newTasks}/>
           </div>
         </div>
       </div>

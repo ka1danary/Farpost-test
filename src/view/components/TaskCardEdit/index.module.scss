@@ -28,14 +28,19 @@
 
     }
 
+    &ContentButton {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        padding: 30px;
+    }
+
     &ContentBox {
         padding: 30px;
 
         &Name {
             margin-bottom: 30px;
             word-wrap: break-word;
-            width: 47vW;
-            
             &Select {
                 display: flex;
                 align-items: center;
@@ -43,7 +48,6 @@
                 margin-bottom: 80px;
 
             }
-            
             
             p {
                 font-size: 1.3em;

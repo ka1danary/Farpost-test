@@ -7,13 +7,13 @@ interface Props {
 
 const PriorityColors = {
   Designed: "#da007841",
-  Development: "#60c5d575",
+  Development: "#B3DCD8",
   Research: "#ff910075",
 };
 
-const MarpOrPrioritySelectBox: React.FC<Props> = ({ values }) => {
+const MarkBox: React.FC<Props> = ({ values }) => {
   const setColor = (color: string) => {
-    if (color === "Designed") {
+    if (color === "Design") {
       return PriorityColors.Designed;
     } else if (color === "Development") {
       return PriorityColors.Development;
@@ -38,4 +38,4 @@ const MarpOrPrioritySelectBox: React.FC<Props> = ({ values }) => {
   );
 };
 
-export default MarpOrPrioritySelectBox;
+export default MarkBox;
