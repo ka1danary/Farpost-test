@@ -1,31 +1,96 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Farpost-test
 
-Currently, two official plugins are available:
+## Start 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+cd client
+npm i
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# Farpost-test
+## Стек 
+
+Фреймворк - React Ts
+
+Библиотеки: 
+
+- Zustand
+- React loader
+- React Router Dom
+- sass
+- react-intersection-observer
+
+## Главная страница  (MainPage)
+
+На главной странице представлен список задач, кнопка "Добавить задачу", боковое меню с сортировкой и фильтрацией
+
+![image](https://github.com/ka1danary/Farpost-test/assets/99461482/a9304e0a-9db5-48ea-ae8a-bf823a8006fd)
+
+Кнопка "Создать задачу" открывает модальное окно с формой для заполнения. 
+
+- Название задачи
+- Выбор приоритета
+- Выбор меток
+- Описание задачи
+
+Кнопка "Очистить" удаляет выбранный стутс и метки.
+
+По нажатию кнопки "Создать" в массив задач добаляется новая задача.
+
+При повторном выборе метки, метка удаляется из массиваа. Визуально не показано, в будущем будет исправлено.
+
+![image](https://github.com/ka1danary/Farpost-test/assets/99461482/c306910b-2630-47b6-9310-613f9bc828c0)
+
+### Сортировка 
+
+Сортирует список задач относительно даты создания, по возрастанию / убыванию .
+
+Отмены сортировки пока нет, потому что сортировка ссылается на оригинальный массив задач, в будущем будем исправлено.
+
+![image](https://github.com/ka1danary/Farpost-test/assets/99461482/5a2f2933-c651-4e18-b7d3-c5c2a29580b9)
+
+
+### Фильтрация
+
+Показывает карточки у когорых есть выбранные метки. 
+
+Выбрать приоритет можно только 1, при выборе другого происходит переключение. Визуально это не показано с помощью чекбокса, в будущем будет исправлено.
+
+![image](https://github.com/ka1danary/Farpost-test/assets/99461482/86e4f19b-278b-4836-b27d-3d197bf938eb)
+
+
+## Просмотр Задачи (ViewPage)
+
+При нажатии на карточку происходит переход на страницу просмотра задачи. 
+
+![image](https://github.com/ka1danary/Farpost-test/assets/99461482/29d54c8e-9560-45c1-816d-6f059ee57271)
+
+
+С помощью соответствующих кнопок можно переключаться между страницами.
+
+
+## Редактирование задачи (EditPage)
+
+Можно отредактировать название, описание, выбрать новый приоритет и метки. 
+
+При повторном выборе метки метка сбрасывается, визуально не показано, в будущем будет исправлено.
+
+При нажатии кнопки назад, изменения не сохраняются.
+
+При нажатии кнопки сохранить, изменения сохраняюися, происходит перенаправление на страницу просмотра.
+
+![image](https://github.com/ka1danary/Farpost-test/assets/99461482/345aac2f-7920-41e1-ad85-1fe7846278e3)
+
+## Адаптация 
+
+Адаптация всех страниц и компонентов выполнена не полностью, в будущем будет исправлено.
+
+## Бесконечная лента (Подгрузка по 15 элементов до конца странциы)
+
+Не реализовано корректно из-за возникших трудностей. В будущем будет исправлено. 
+
+
+
+
+
