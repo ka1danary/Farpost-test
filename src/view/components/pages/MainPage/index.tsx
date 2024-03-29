@@ -6,7 +6,6 @@ import { ButtonAdd } from "../../buttons/ButtonAdd";
 import { SortBoxByNewOld } from "../../SortBoxByNewOld";
 import { useFarpostStore } from "../../../../data/stores/useFarpostStore";
 import { ListTaskCard } from "../../ListTaskCard";
-import { Header } from "../../../Header";
 import { SortBoxByPriorityMarks } from "../../SortBoxByPriorityMarks";
 
 interface MainPageProps {}
@@ -25,7 +24,6 @@ export const MainPage: React.FC<MainPageProps> = () => {
 
   return (
     <div className={styles.Page}>
-      <Header />
       <div className={styles.MainPageTitle}>
         <div>
           <svg
@@ -55,10 +53,23 @@ export const MainPage: React.FC<MainPageProps> = () => {
       <div className={styles.MainPage}>
         <div className={styles.MainPageSideBar}>
           <div className={styles.MainPageSideBarBox}>
-            <div style={{ marginBottom: "27px", display : "flex", alignItems : "center", justifyContent : "center" }}>
+            <div
+              style={{
+                marginBottom: "27px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <SortBoxByNewOld />
             </div>
-            <div style={{ display : "flex", alignItems : "center", justifyContent : "center" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <SortBoxByPriorityMarks />
             </div>
           </div>

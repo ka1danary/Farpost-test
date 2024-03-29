@@ -5,7 +5,7 @@ import data from "../MOCK_DATA.json";
 interface Task {
   id: string;
   name: string;
-  createdAt: Date; 
+  createdAt: Date;
   title: string;
   priority: string[];
   mark: string[];
@@ -15,12 +15,12 @@ interface TaskStore {
   tasks: Task[];
   task: Task;
   id: string;
-  propertiesForFilter : string[];
-  setPropertiesForFilter : (prop : string []) => void;
+  propertiesForFilter: string[];
+  setPropertiesForFilter: (prop: string[]) => void;
   sortTaskByNewDate: () => void;
   sortTaskByOldDate: () => void;
-  filterCards : (values : string[]) => Task[];
-  
+  filterCards: (values: string[]) => Task[];
+
   setId: (id: string) => void;
 
   setTaskInfoString: (
@@ -54,7 +54,7 @@ interface TaskStore {
 const globalTask: Task = {
   id: "",
   name: "Name",
-  createdAt: new Date,
+  createdAt: new Date(),
   title: "Title",
   priority: ["Low"],
   mark: ["Designed"],
@@ -63,33 +63,37 @@ const globalTask: Task = {
 export const useFarpostStore = create<TaskStore>((set, get) => ({
   tasks: data,
   task: globalTask,
-  propertiesForFilter : [],
+  propertiesForFilter: [],
   id: "",
   sortTaskByNewDate: () => {
     const { tasks } = get();
-    const sortedTasks = [...tasks].sort((a: Task, b: Task) => (new Date(a.createdAt).getTime() < new Date(b.createdAt).getTime() ? 1 : -1));
+    const sortedTasks = [...tasks].sort((a: Task, b: Task) =>
+      new Date(a.createdAt).getTime() < new Date(b.createdAt).getTime() ? 1 : -1
+    );
     set({ tasks: sortedTasks });
   },
   sortTaskByOldDate: () => {
     const { tasks } = get();
-    const sortedTasks = [...tasks].sort((a: Task, b: Task) => (new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime() ? 1 : -1));
+    const sortedTasks = [...tasks].sort((a: Task, b: Task) =>
+      new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime() ? 1 : -1
+    );
     set({ tasks: sortedTasks });
   },
-  
+
   createTask: (name, title, priority, mark) => {
-  const { tasks } = get();
-  const newTask = {
-    id: generateId(),
-    name,
-    createdAt: new Date(),
-    title,
-    priority,
-    mark,
-  };
-  set({
-    tasks: [newTask, ...tasks], 
-  });
-},
+    const { tasks } = get();
+    const newTask = {
+      id: generateId(),
+      name,
+      createdAt: new Date(),
+      title,
+      priority,
+      mark,
+    };
+    set({
+      tasks: [newTask, ...tasks],
+    });
+  },
   stopVisible: (vision) => !vision,
 
   setTaskInfoString: (id, name, createdAt, title, priority, mark) => {
@@ -135,21 +139,22 @@ export const useFarpostStore = create<TaskStore>((set, get) => ({
       id: newId,
     });
   },
-  filterCards : (values) => {
-    const {tasks} = get()
-    const filteredTasks = tasks.filter(task => {
-      return values.every(value => task.priority.includes(value) || task.mark.includes(value));
+  filterCards: (values) => {
+    const { tasks } = get();
+    const filteredTasks = tasks.filter((task) => {
+      return values.every(
+        (value) => task.priority.includes(value) || task.mark.includes(value)
+      );
     });
     return filteredTasks;
   },
 
-  setPropertiesForFilter : (prop) => {
-    const {propertiesForFilter} = get()
-    
-    set({
-      propertiesForFilter : prop
-    })
-    console.log('Значения для фильтров' + propertiesForFilter)
-  }
+  setPropertiesForFilter: (prop) => {
+    const { propertiesForFilter } = get();
 
+    set({
+      propertiesForFilter: prop,
+    });
+    console.log("Значения для фильтров" + propertiesForFilter);
+  },
 }));

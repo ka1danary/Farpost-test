@@ -100,7 +100,7 @@ export const TaskCardEdit: React.FC<Props> = () => {
               set={setTitle}
               placeholder="..."
               width="45vw"
-              height="15vh"
+              height="10vh"
             ></Textarea>
           </div>
         </div>

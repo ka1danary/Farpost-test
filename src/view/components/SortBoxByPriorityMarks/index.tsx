@@ -14,8 +14,8 @@ export const SortBoxByPriorityMarks: React.FC<Props> = () => {
   const [arrayMarks, setarrayMarks] = useState<string[]>([]);
   const [arrayPriority, setArrayPriority] = useState<string[]>([]);
 
-  const [propertiesForFilter, setPropertiesForFilter] = useFarpostStore(
-    (state) => [state.propertiesForFilter, state.setPropertiesForFilter]
+  const [setPropertiesForFilter] = useFarpostStore(
+    (state) => [state.setPropertiesForFilter]
   );
 
   useEffect(() => {
