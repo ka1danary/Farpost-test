@@ -1,19 +1,29 @@
 .CustomCheckbox {
-    width: 15vw;
-    min-width: 250px;
+   
     display: flex;
     align-items: center;
     justify-content: start;
+
+    &:hover {
+        background-color: #EDE6F8;
+        border-radius: 5px;
+    }
+
+    &:active {
+        background-color: #EDE6F8;
+        border-radius: 5px;
+    }
+
+    &:focus {
+        background-color: #EDE6F8;
+        border-radius: 5px;
+    }
 
     span {
         margin-left: 10px;
     }
 
     &Box {
-        width: 20px;
-        height: 20px;
-        border-radius: 4px;
-        border: 1px solid #D6A3FF;
         cursor: pointer;
         outline: none;
         display: flex;

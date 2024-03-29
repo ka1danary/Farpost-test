@@ -4,18 +4,21 @@ import styles from "./index.module.scss";
 interface Props {
   values: string[];
   setPriority: (val: string[]) => void;
-  priority: string[];
+  priority?: string[];
 }
 
 export const CustomSelectPriority: React.FC<Props> = ({
   values,
   setPriority,
-  priority
+  
 }) => {
   const [vision, setVision] = useState(true);
   const selectRef = useRef<HTMLDivElement>(null);
 
-  
+
+  useEffect(() => {
+    setVision(false)
+  }, [])
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {

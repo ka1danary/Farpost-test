@@ -110,16 +110,14 @@
                 align-items: center;
 
                 &Left {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    width: 20px;
+                    
                 }
 
                 &Right {
                     display: flex;
-                    justify-content: center;
+                    justify-content: start;
                     align-items: center;
+                    margin-top : 10px
                 }
 
             }

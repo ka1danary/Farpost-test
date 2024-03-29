@@ -22,7 +22,7 @@ export const Textarea: React.FC<Props> = ({
   return (
     <div>
       <textarea
-        style={{ width: width, height: '10px' }}
+        style={{ width: width, height: height }}
         className={styles.Input}
         placeholder={placeholder}
         onChange={(e) => helper(e.target.value)}

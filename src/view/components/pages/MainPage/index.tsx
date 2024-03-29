@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./index.module.scss";
 
@@ -9,17 +9,19 @@ import { ListTaskCard } from "../../ListTaskCard";
 import { Header } from "../../../Header";
 import { SortBoxByPriorityMarks } from "../../SortBoxByPriorityMarks";
 
-
 interface MainPageProps {}
 
 export const MainPage: React.FC<MainPageProps> = () => {
-
-  const [tasks, propertiesForFilter, filterCards] = useFarpostStore((state) => [state.tasks, state.propertiesForFilter, state.filterCards]);
-  const [newTasks, setNewTasks] = useState(tasks)
+  const [tasks, propertiesForFilter, filterCards] = useFarpostStore((state) => [
+    state.tasks,
+    state.propertiesForFilter,
+    state.filterCards,
+  ]);
+  const [newTasks, setNewTasks] = useState(tasks);
 
   useEffect(() => {
-    setNewTasks(filterCards(propertiesForFilter))
-  }, [propertiesForFilter, tasks])
+    setNewTasks(filterCards(propertiesForFilter));
+  }, [propertiesForFilter, tasks]);
 
   return (
     <div className={styles.Page}>
@@ -52,11 +54,13 @@ export const MainPage: React.FC<MainPageProps> = () => {
       </div>
       <div className={styles.MainPage}>
         <div className={styles.MainPageSideBar}>
-          <div>
-            <div style={{ marginBottom: "27px" }}>
+          <div className={styles.MainPageSideBarBox}>
+            <div style={{ marginBottom: "27px", display : "flex", alignItems : "center", justifyContent : "center" }}>
               <SortBoxByNewOld />
             </div>
-            <SortBoxByPriorityMarks/>
+            <div style={{ display : "flex", alignItems : "center", justifyContent : "center" }}>
+              <SortBoxByPriorityMarks />
+            </div>
           </div>
         </div>
         <div className={styles.MainPageCenter}>
@@ -64,7 +68,7 @@ export const MainPage: React.FC<MainPageProps> = () => {
             <ButtonAdd />
           </div>
           <div>
-            <ListTaskCard tasks={newTasks}/>
+            <ListTaskCard tasks={newTasks} />
           </div>
         </div>
       </div>

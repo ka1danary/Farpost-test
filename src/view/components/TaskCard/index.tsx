@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
-import MarkBox from "../../MarkBox";
+import MarkBox from "../MarkBox";
 
 interface Task {
   id: string;
@@ -83,7 +83,7 @@ export const TaskCard: React.FC<Task> = ({
               <div>Приоритет: {"\u00A0"}</div>{" "}
               {priority.length === 0 ? <span>...</span> : priority}
             </div>
-            <div className={styles.TaskCardContentEl}>
+            <div className={styles.TaskCardContentElMark}>
               <div>Метка: {"\u00A0"}</div>{" "}
               {mark.length === 0 ? (
                 <span>...</span>

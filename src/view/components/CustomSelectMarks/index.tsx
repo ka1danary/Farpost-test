@@ -19,6 +19,7 @@ export const CustomSelectMarks: React.FC<Props> = ({
   useEffect(() => {
     setVision(false)
   }, [])
+  
   const selectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -2,86 +2,185 @@
     display: flex;
     align-items: center;
     border-radius: 6px;
-    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
     background: rgb(255, 255, 255);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
     width: 15vw;
-    min-width: 250px;
     min-height: 300px;
     height: 45vh;
     padding: 20px;
 
-
-    &Title {
-        font-size: 1em;
-        font-weight: 500;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-
-        svg {
-            margin-right: 10px;
-        }
-    }
-
-    &Content {
-        font-size: 1em;
-
-
-        &ButtonSort {
-            display: flex;
-            padding: 20px;
-            justify-content: start;
-            align-items: center;
-            margin-bottom: 5px;
-            width: 15vw;
-            min-width: 250px;
-            height: 5vh;
-            transition: background-color 0.3s;
-
-
-            &:hover {
-                background-color: #EDE6F8;
-                border-radius: 5px;
-            }
-
-            &:active {
-                background-color: #EDE6F8;
-                border-radius: 5px;
-            }
-
-            &:focus {
-                background-color: #EDE6F8;
-                border-radius: 5px;
-            }
-
-
-            &SVG {
-                margin-right: 10px;
-            }
-        }
-    }
-}
-
-
-@media (max-width: 1280px) {
-    .SortBox {
-
+    &Container {
 
 
         &Title {
-            font-size: 1.5em;
+            font-size: 1.3em;
             font-weight: 500;
             margin-bottom: 10px;
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-top: 20px;
 
             svg {
                 margin-right: 10px;
             }
         }
 
+        &Content {
+
+            margin-left: 10px;
+
+            &ButtonSort {
+                flex-wrap: wrap;
+                margin-bottom: 5px;
+                width: 15vw;
+                
+                height: 5vh;
+                transition: background-color 0.3s;
+
+
+                &:hover {
+                    background-color: #EDE6F8;
+                    border-radius: 5px;
+                }
+
+                &:active {
+                    background-color: #EDE6F8;
+                    border-radius: 5px;
+                }
+
+                &:focus {
+                    background-color: #EDE6F8;
+                    border-radius: 5px;
+                }
+
+
+                &SVG {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+@media (max-width: 1280px) {
+    .SortBox {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        height: auto;
+        min-width: 250px;
+        min-height: 300px;
+        width: 45vw;
+        padding: 20px;
+        background: rgb(255, 255, 255);
+
+        &Container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            &Title {
+                font-size: 1.3em;
+                font-weight: 500;
+                margin-bottom: 10px;
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                SVG {
+                    margin-right: 10px;
+                    
+                }
+            }
+
+            &Content {
+
+                
+                &ButtoonSort {
+                    width: 10vw;
+                    transition: background-color 0.3s;
+                    
+                    &:hover {
+                        background-color: #EDE6F8;
+                        border-radius: 5px;
+                    }
+    
+                    &:active {
+                        background-color: #EDE6F8;
+                        border-radius: 5px;
+                    }
+    
+                    &:focus {
+                        background-color: #EDE6F8;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }   
+    }
+}
+
+@media (max-width: 720px) {
+    .SortBox {
+        font-size: 0.8em;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        height: auto;
+        min-width: 250px;
+        min-height: 300px;
+        width: 45vw;
+        padding: 20px;
+        background: rgb(255, 255, 255);
+
+        &Container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            &Title {
+                font-size: 1.3em;
+                font-weight: 500;
+                margin-bottom: 10px;
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                SVG {
+                    margin-right: 10px;
+                    
+                }
+            }
+
+            &Content {
+
+                
+                &ButtoonSort {
+                    width: 10vw;
+                    transition: background-color 0.3s;
+                    
+                    &:hover {
+                        background-color: #EDE6F8;
+                        border-radius: 5px;
+                    }
+    
+                    &:active {
+                        background-color: #EDE6F8;
+                        border-radius: 5px;
+                    }
+    
+                    &:focus {
+                        background-color: #EDE6F8;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }   
     }
 }

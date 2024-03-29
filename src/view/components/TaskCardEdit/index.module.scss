@@ -23,9 +23,8 @@
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: #008bdb85;
+        background-color: #C4AFEB;
         border-radius: 5px;
-
     }
 
     &ContentButton {
@@ -38,28 +37,46 @@
     &ContentBox {
         padding: 30px;
 
+        &Selectors {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            &Clean {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
         &Name {
             margin-bottom: 30px;
             word-wrap: break-word;
+
             &Select {
                 display: flex;
                 align-items: center;
                 justify-content: start;
                 margin-bottom: 80px;
 
+
+
             }
-            
+
             p {
                 font-size: 1.3em;
                 color: #a5a5a5;
                 font-weight: 400;
                 margin-bottom: 5px;
             }
+
             &Title {
-                
+
                 margin-top: 100px;
 
             }
+
+
 
         }
     }

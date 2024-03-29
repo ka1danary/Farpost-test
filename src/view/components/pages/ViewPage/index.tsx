@@ -33,15 +33,20 @@ export const ViewPage: React.FC<Props> = () => {
         <div className={styles.ViewPageTask}>
           <div className={styles.ViewPageTaskButtonBox}>
             <div className={styles.ViewPageTaskButtonBoxLeft}>
-              <div style={{ marginRight: "15px" }}>
+              <div
+                style={{
+                  marginRight: "15px",
+                }}
+              >
                 <ButtonEdit href={"/"} title={"Назад"} type={"void"} />
               </div>
-
-              <ButtonEdit
-                href={"/edit"}
-                title={"Редактировать"}
-                type={"calm"}
-              />
+              <div>
+                <ButtonEdit
+                  href={"/edit"}
+                  title={"Редактировать"}
+                  type={"calm"}
+                />
+              </div>
             </div>
             <div className={styles.ViewPageTaskButtonBoxRight}>
               <ButtonDelete />

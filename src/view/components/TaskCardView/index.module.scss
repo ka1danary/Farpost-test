@@ -24,7 +24,6 @@
     &::-webkit-scrollbar-thumb {
         background-color: #C4AFEB;
         border-radius: 5px;
-
     }
 
     &ContentBox {
@@ -44,10 +43,7 @@
 
             &Marks {
                 display: flex;
-                align-items: center;
-                
-               
-                
+                align-items: center; 
             }
             p {
                 font-size: 1.3em;
@@ -63,4 +59,8 @@
 
         }
     }
+}
+
+@media (max-width : 100px) {
+    
 }

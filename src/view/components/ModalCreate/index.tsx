@@ -7,8 +7,8 @@ import { ButtonCreate } from "../buttons/ButtonCreate";
 import { Input } from "../Input";
 import { CustomSelectMarks } from "../CustomSelectMarks";
 import { CustomSelectPriority } from "../CustomSelectPriority";
-import MarkBox from "../../MarkBox";
-import { PriorityBox } from "../../PriorityBox";
+import MarkBox from "../MarkBox";
+import { PriorityBox } from "../PriorityBox";
 import { Textarea } from "../Textarea";
 
 interface ModalCreate {

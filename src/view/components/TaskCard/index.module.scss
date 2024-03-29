@@ -3,7 +3,7 @@
     justify-content: space-between;
     padding: 20px;
     margin-top: 20px;
-    height: 20vh;
+    height: 22vh;
     width: 70vW;
     min-height: 170px;
     border-radius: 6px;
@@ -27,10 +27,10 @@
     }
 
     &Content {
-
+        
         font-size: 1em;
         padding: 10px 0 10px 0;
-        width: 60vW;
+        width: 65vW;
         cursor: pointer;
         
 
@@ -42,6 +42,16 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             word-wrap: break-word;
+
+            &Mark {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: start;
+                margin-left: 10px;
+                width: auto;
+                margin-top: 10px;
+            }
 
             div {
                 font-weight: 500;
@@ -56,4 +66,8 @@
     display: flex;
     justify-content: left;
     align-items: center;
+}
+
+@media (max-width : 1000px) {
+
 }

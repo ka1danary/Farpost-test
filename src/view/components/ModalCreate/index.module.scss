@@ -133,7 +133,23 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 660px) {
+    .ModalCreate {
+    
+        &Content {
+            width: 80vw;
+            height: 70vh;
+            &Data {
+                &Element {
+                    
+                    
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
     .ModalCreate {
         
         &Content {

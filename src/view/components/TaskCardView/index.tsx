@@ -1,8 +1,8 @@
 import { useFarpostStore } from "../../../data/stores/useFarpostStore";
 import { format } from "@formkit/tempo";
 import styles from "./index.module.scss";
-import MarkBox from "../../MarkBox";
-import { PriorityBox } from "../../PriorityBox";
+import MarkBox from "../MarkBox";
+import { PriorityBox } from "../PriorityBox";
 
 interface Props {}
 
